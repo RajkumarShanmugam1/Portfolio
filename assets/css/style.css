@@ -345,6 +345,13 @@ main {
   border-radius: 8px;
 }
 
+.title1 {
+  background: var(--onyx);
+  width: 250px;
+  padding: 3px 12px;
+  border-radius: 8px;
+}
+
 .info-content .title {
   color: var(--white-1);
   background: var(--onyx);
