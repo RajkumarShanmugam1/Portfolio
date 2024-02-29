@@ -306,8 +306,6 @@ function MainBar(){
 
       <div className="main-content">
         <Row className="navbar">
-          <col xs={12} >
-          </col>
             <Nav
               className="navbar-list"
               variant="tabs"

@@ -6,7 +6,7 @@ import MainBar from './component/MainBar';
 function App() {
   return (
     <>
-      <Particlebg />
+      {/* <Particlebg /> */}
       <main>
         <SideBar/>
         <MainBar/>
