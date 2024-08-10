@@ -1,5 +1,5 @@
 # Portfolio
 
-TEMPLATE LINK : https://github.com/codewithsadee/vcard-personal-portfolio/blob/master/index.html
+TEMPLATE LINK : https://github.com/codewithsadee/vcard-personal-portfolio/
 
 Thanks to codewithsadee.
