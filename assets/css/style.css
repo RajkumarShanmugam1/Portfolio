@@ -946,9 +946,10 @@ p{
 
 .project-list {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-  margin-bottom: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  row-gap: 80px;
+  column-gap: 30px;
+  margin-bottom: 20px;
 }
 
 .project-item { display: none; }
@@ -1349,9 +1350,12 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
+  .avatar-box { border-radius: 50px; }
 
-  .avatar-box img { width: 120px; }
+  .avatar-box img { 
+      width: 120px; 
+      border-radius: 50%;
+   }
 
   .info-content .name { margin-bottom: 15px; }
 
