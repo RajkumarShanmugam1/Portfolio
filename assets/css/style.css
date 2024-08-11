@@ -322,10 +322,15 @@ main {
   gap: 15px;
 }
 
-.avatar-box {
-  background: var(--bg-gradient-onyx);
-  border-radius: 20px;
-}
+  .avatar-box { 
+	background: var(--bg-gradient-onyx); 
+	border-radius: 50px;
+  }
+
+  .avatar-box img { 
+      width: 120px; 
+      border-radius: 50%;
+   }
 
 .info-content .name {
   color: var(--white-2);
@@ -1850,8 +1855,13 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .sidebar-info { flex-direction: column; }
+  
+  .avatar-box { border-radius: 50px; }
 
-  .avatar-box img { width: 150px; }
+  .avatar-box img { 
+      width: 120px; 
+      border-radius: 50%;
+   }
 
   .info-content .name {
     white-space: nowrap;
