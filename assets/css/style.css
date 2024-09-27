@@ -146,7 +146,7 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: #191b2a; }
+body { background: #000631; }
 
 #particles-js {
   position: absolute;
@@ -1830,21 +1830,19 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   body::-webkit-scrollbar { width: 20px; }
 
-  body::-webkit-scrollbar-track { background: #191b2a; }
+  body::-webkit-scrollbar-track { background: #000631; }
 
   body::-webkit-scrollbar-thumb {
     border: 5px solid var(--smoky-black);
-    background: #191b2a;;
+    background: #000631;
     border-radius: 20px;
     box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
                 inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
   }
 
-  body::-webkit-scrollbar-thumb:hover { background: #191b2a; }
+  body::-webkit-scrollbar-thumb:hover { background: #000631; }
 
   body::-webkit-scrollbar-button { height: 60px; }
-
-
 
   /**
    * REUSED STYLE
