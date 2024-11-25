@@ -1271,6 +1271,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .social-list { justify-content: center; }
+
+  #name2 {
+    display: none;
+  }
 }
 
 /**
@@ -1298,6 +1302,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-item-subline{
     margin-top: -10px;
     margin-left: 45px;
+  }
+
+  #name2 {
+    display: none;
   }
 
 }
@@ -1595,6 +1603,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-item-subline{
     margin-top: -20px;
     margin-left: 58px;
+  }
+
+  #name2 {
+    display: none;
   }
 
 }
@@ -1940,4 +1952,14 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+  #name1 {
+    display: none;
+  }
+
+  #name2 {
+    display: flex;
+    justify-content: center;
+  }
+
 }
+
