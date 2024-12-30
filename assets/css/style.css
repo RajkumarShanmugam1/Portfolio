@@ -501,6 +501,7 @@ main {
   font-size: var(--fs-8);
   padding: 20px 7px;
   transition: color var(--transition-1);
+  text-transform: capitalize;
 }
 
 .navbar-link:hover,
@@ -1846,13 +1847,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   body::-webkit-scrollbar-thumb {
     border: 5px solid var(--smoky-black);
-    background: #000631;
+    background: #470068;
     border-radius: 20px;
     box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
                 inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
   }
 
-  body::-webkit-scrollbar-thumb:hover { background: #000631; }
+  body::-webkit-scrollbar-thumb:hover { background: hsl(293, 100%, 27%); }
 
   body::-webkit-scrollbar-button { height: 60px; }
 
