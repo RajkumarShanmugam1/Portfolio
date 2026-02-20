@@ -1,0 +1,67 @@
+{
+    "bio": [
+        "Completed a Computer Science Engineering degree at Mepco Schlenk Engineering College, Sivakasi, Tamil Nadu. Currently engaged as a Project Engineer at Palc Networks, Chennai. Ensuring the security of numerous assets and identifying many vulnerabilities in both government and private sectors, often providing ideas for fixes.",
+        "Passionate about cybersecurity and bug bounty programs, with a strong enthusiasm for identifying vulnerabilities and enhancing digital security. Committed to raising awareness about cyber issues and promoting preventive measures against cybercrime. Dedicated to continuous learning and contributing to the evolving landscape of online safety."
+    ],
+    "services": [
+        {
+            "title": "Security Research",
+            "text": "Advanced vulnerability assessment and bug hunting with a focus on web and network security.",
+            "iconType": "FaShieldAlt",
+            "colorClass": "from-accent-blue/20 to-accent-purple/5"
+        },
+        {
+            "title": "Security Development",
+            "text": "Architecting secure network tools and building modern responsive GUIs for complex systems.",
+            "iconType": "FaTerminal",
+            "colorClass": "from-accent-cyan/20 to-accent-blue/5"
+        }
+    ],
+    "techStack": [
+        {
+            "label": "Pentesting",
+            "iconType": "FaShieldAlt",
+            "color": "text-accent-cyan"
+        },
+        {
+            "label": "Security Research",
+            "iconType": "FaShieldAlt",
+            "color": "text-accent-blue"
+        },
+        {
+            "label": "React.js",
+            "iconType": "FaReact",
+            "color": "text-cyan-400"
+        },
+        {
+            "label": "Python",
+            "iconType": "FaPython",
+            "color": "text-yellow-400"
+        },
+        {
+            "label": "Linux",
+            "iconType": "FaLinux",
+            "color": "text-white"
+        },
+        {
+            "label": "Wireshark",
+            "iconType": "SiWireshark",
+            "color": "text-blue-400"
+        },
+        {
+            "label": "Docker",
+            "iconType": "FaDocker",
+            "color": "text-blue-500"
+        },
+        {
+            "label": "Git",
+            "iconType": "FaGitAlt",
+            "color": "text-orange-500"
+        },
+        {
+            "label": "Bash",
+            "iconType": "FaTerminal",
+            "color": "text-green-400"
+        }
+    ]
+}

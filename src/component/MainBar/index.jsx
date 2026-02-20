@@ -1,362 +1,94 @@
-import React, { useState , useEffect } from 'react';
-import { Col, Row, Nav, Button } from "react-bootstrap";
-import About from "./About";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  FaChevronDown, FaChevronUp,
+  FaEnvelope, FaCalendarDays, FaAward, FaUser, FaCircleInfo,
+  FaFileLines, FaTrophy, FaRss, FaPhone, FaHandshakeAngle, FaCoins, FaBriefcase
+} from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaMedium } from 'react-icons/fa';
+import { SiCredly } from 'react-icons/si';
+import About from './About';
 import Resume from './Resume';
 import Portfolio from './Portfolio';
+import Blog from './Blog';
 import Contact from './Contact';
 
-import "../../assets/css/main.css";
+const tabs = [
+  { name: 'About', icon: <FaCircleInfo /> },
+  { name: 'Resume', icon: <FaFileLines /> },
+  { name: 'Portfolio', icon: <FaBriefcase /> },
+  { name: 'Blog', icon: <FaRss /> },
+  { name: 'Contact', icon: <FaPhone /> }
+];
 
-function MainBar(){
-  
-  const [activeTab, setActiveTab] = useState("About");
-  
+const pageVariants = {
+  initial: { opacity: 0, scale: 0.98 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 1.02 },
+};
+
+const components = {
+  About: About,
+  Resume: Resume,
+  Portfolio: Portfolio,
+  Blog: Blog,
+  Contact: Contact,
+};
+
+function MainBar() {
+  const [activeTab, setActiveTab] = useState('About');
+  const ActiveComponent = components[activeTab];
+
   return (
-      // <div className="main-content">
-      
-      //   <nav className="navbar">
-      //     <ul className="navbar-list">
-      //       <li className="navbar-item">
-      //         <button className="navbar-link  active" data-nav-link="">
-      //           About
-      //         </button>
-      //       </li>
-      //       <li className="navbar-item">
-      //         <button className="navbar-link" data-nav-link="">
-      //           Resume
-      //         </button>
-      //       </li>
-      //       <li className="navbar-item">
-      //         <button className="navbar-link" data-nav-link="">
-      //           Portfolio
-      //         </button>
-      //       </li>
-      //       <li className="navbar-item">
-      //         <button className="navbar-link" data-nav-link="">
-      //           Contact
-      //         </button>
-      //       </li>
-      //     </ul>
-      //   </nav>
+    <div className="flex-1 min-w-0 space-y-0 pb-12 relative">
+      {/* Sticky Fade Effect Zone */}
+      <div className="sticky top-0 z-40 h-24 pointer-events-none bg-gradient-to-b from-site-bg via-site-bg/80 to-transparent -mb-24" />
 
-      //   <About className="about active"/>
+      {/* Sticky Tab Navigation */}
+      <nav className="sticky top-0 z-50 pt-1 pb-1">
+        <div className="glass rounded-2xl p-1 lg:p-1.5 flex justify-center">
+          <ul className="flex flex-wrap items-center justify-center gap-1">
+            {tabs.map(tab => (
+              <li key={tab.name} className="relative">
+                <button
+                  className={`px-3 sm:px-6 py-2 sm:py-2.5 text-[11px] sm:text-sm font-black transition-all duration-300 rounded-xl whitespace-nowrap flex items-center gap-2
+                    ${activeTab === tab.name ? 'text-white' : 'text-text-secondary hover:text-white hover:bg-white/5'}`}
+                  onClick={() => setActiveTab(tab.name)}
+                >
+                  <span className="relative z-10 inline-block">{tab.icon}</span>
+                  <span className="relative z-10">{tab.name}</span>
+                  {activeTab === tab.name && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className="absolute inset-0 rounded-xl"
+                      style={{ background: 'linear-gradient(135deg, #06b6d4, #6366f1, #a855f7, #ec4899)', boxShadow: '0 0 25px rgba(168,85,247,0.5), 0 0 60px rgba(99,102,241,0.2)' }}
+                      transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
+                    />
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
 
-      //   <article className="resume" data-page="resume">
-      //     <header>
-      //       <h2 className="h2 article-title">Resume</h2>
-      //     </header>
-      //     <section className="timeline">
-      //       <div className="title-wrapper">
-      //         <div className="icon-box">
-      //           <ion-icon name="book-outline" />
-      //         </div>
-      //         <h3 className="h3">Education</h3>
-      //       </div>
-      //       <ol className="timeline-list">
-      //         <li className="timeline-item">
-      //           <h4 className="h4 timeline-item-title">
-      //             Mepco Schlenk Engineering College, Sivakasi, Tamilnadu
-      //           </h4>
-      //           <span>2019 — 2023</span>
-      //           <p className="timeline-text">B.E. Computer Science</p>
-      //         </li>
-      //         <li className="timeline-item">
-      //           <h4 className="h4 timeline-item-title">
-      //             Government Higher Secondry School, (O.Siruvayal), Tamilnadu
-      //           </h4>
-      //           <span>2017 — 2019</span>
-      //           <p className="timeline-text">HSC (11th and 12th Grade)</p>
-      //         </li>
-      //         <li className="timeline-item">
-      //           <h4 className="h4 timeline-item-title">
-      //             Government High School, (Thiruvelangudi), Tamilnadu
-      //           </h4>
-      //           <span>Until 2017</span>
-      //           <p className="timeline-text">SSLC (Until 10th Grade)</p>
-      //         </li>
-      //       </ol>
-      //     </section>
-      //     <section className="timeline">
-      //       <div className="title-wrapper">
-      //         <div className="icon-box">
-      //           <ion-icon name="book-outline" />
-      //         </div>
-      //         <h3 className="h3">Experience</h3>
-      //       </div>
-      //       <ol className="timeline-list">
-      //         <li className="timeline-item">
-      //           <h4 className="h4 timeline-item-title">Project Engineer</h4>
-      //           <span>June,2023 — Present</span>
-      //           <p className="timeline-text">
-      //             Company &nbsp;: &nbsp;PALC Networks <br />
-      //             Role &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-      //             &nbsp;Security Analyst
-      //           </p>
-      //         </li>
-      //         <li className="timeline-item">
-      //           <h4 className="h4 timeline-item-title">Software Trainee</h4>
-      //           <span>Feb,2023 — June,2023</span>
-      //           <p className="timeline-text">
-      //             Company &nbsp;: &nbsp;PALC Networks <br />
-      //             Role &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-      //             &nbsp;Intern
-      //           </p>
-      //         </li>
-      //       </ol>
-      //     </section>
-      //     {/* <section class="skill">
-
-
-      //     <h3 class="h3 skills-title">My skills</h3>
-
-      //     <ul class="skills-list content-card">
-
-      //       <li class="skills-item">
-
-      //         <div class="title-wrapper">
-      //           <h5 class="h5">Web design</h5>
-      //           <data value="80">80%</data>
-      //         </div>
-
-      //         <div class="skill-progress-bg">
-      //           <div class="skill-progress-fill" style="width: 80%;"></div>
-      //         </div>
-
-      //       </li>
-
-      //       <li class="skills-item">
-
-      //         <div class="title-wrapper">
-      //           <h5 class="h5">Graphic design</h5>
-      //           <data value="70">70%</data>
-      //         </div>
-
-      //         <div class="skill-progress-bg">
-      //           <div class="skill-progress-fill" style="width: 70%;"></div>
-      //         </div>
-
-      //       </li>
-
-      //       <li class="skills-item">
-
-      //         <div class="title-wrapper">
-      //           <h5 class="h5">Branding</h5>
-      //           <data value="90">90%</data>
-      //         </div>
-
-      //         <div class="skill-progress-bg">
-      //           <div class="skill-progress-fill" style="width: 90%;"></div>
-      //         </div>
-
-      //       </li>
-
-      //       <li class="skills-item">
-
-      //         <div class="title-wrapper">
-      //           <h5 class="h5">WordPress</h5>
-      //           <data value="50">50%</data>
-      //         </div>
-
-      //         <div class="skill-progress-bg">
-      //           <div class="skill-progress-fill" style="width: 50%;"></div>
-      //         </div>
-
-      //       </li>
-
-      //     </ul>
-
-      //   </section> */}
-      //   </article>
-
-      //   <article className="portfolio" data-page="portfolio">
-      //     <header>
-      //       <h2 className="h2 article-title">Portfolio</h2>
-      //     </header>
-      //     <section className="projects">
-      //       <ul className="filter-list">
-      //         <li className="filter-item">
-      //           <button className="active" data-filter-btn="">
-      //             All
-      //           </button>
-      //         </li>
-      //         <li className="filter-item">
-      //           <button data-filter-btn="">Android</button>
-      //         </li>
-      //         <li className="filter-item">
-      //           <button data-filter-btn="">Web development</button>
-      //         </li>
-      //       </ul>
-      //       <div className="filter-select-box">
-      //         <button className="filter-select" data-select="">
-      //           <div className="select-value" data-selecct-value="">
-      //             Select category
-      //           </div>
-      //           <div className="select-icon">
-      //             <ion-icon name="chevron-down" />
-      //           </div>
-      //         </button>
-      //         <ul className="select-list">
-      //           <li className="select-item">
-      //             <button data-select-item="">All</button>
-      //           </li>
-      //           <li className="select-item">
-      //             <button data-select-item="">Android</button>
-      //           </li>
-      //           <li className="select-item">
-      //             <button data-select-item="">Web development</button>
-      //           </li>
-      //         </ul>
-      //       </div>
-      //       <ul className="project-list">
-      //         <li
-      //           className="project-item  active"
-      //           data-filter-item=""
-      //           data-category="web development"
-      //         >
-      //           <a href="#">
-      //             <figure className="project-img">
-      //               <div className="project-item-icon-box">
-      //                 <ion-icon name="eye-outline" />
-      //               </div>
-      //               <img
-      //                 src="./assets/images/project-1.jpg"
-      //                 alt="finance"
-      //                 loading="lazy"
-      //               />
-      //             </figure>
-      //             <h3 className="project-title">Finance</h3>
-      //             <p className="project-category">Web development</p>
-      //           </a>
-      //         </li>
-      //         <li
-      //           className="project-item  active"
-      //           data-filter-item=""
-      //           data-category="Android"
-      //         >
-      //           <a href="#">
-      //             <figure className="project-img">
-      //               <div className="project-item-icon-box">
-      //                 <ion-icon name="eye-outline" />
-      //               </div>
-      //               <img
-      //                 src="./assets/images/project-8.jpg"
-      //                 alt="task manager"
-      //                 loading="lazy"
-      //               />
-      //             </figure>
-      //             <h3 className="project-title">Task Manager</h3>
-      //             <p className="project-category">Applications</p>
-      //           </a>
-      //         </li>
-      //       </ul>
-      //     </section>
-      //   </article>
-
-      //   <article className="contact" data-page="contact">
-      //     <header>
-      //       <h2 className="h2 article-title">Contact</h2>
-      //     </header>
-      //     <section className="mapbox" data-mapbox="">
-      //       <figure>
-      //         <iframe
-      //           src="https://maps.google.com/maps?q=chennai&t=&z=10&ie=UTF8&iwloc=&output=embed"
-      //           width={400}
-      //           height={300}
-      //           loading="lazy"
-      //         />
-      //       </figure>
-      //     </section>
-      //     <section className="contact-form">
-      //       <h3 className="h3 form-title">Contact Form</h3>
-      //       <form action="#" className="form" data-form="">
-      //         <div className="input-wrapper">
-      //           <input
-      //             type="text"
-      //             name="fullname"
-      //             className="form-input"
-      //             placeholder="Full name"
-      //             required=""
-      //             data-form-input=""
-      //           />
-      //           <input
-      //             type="email"
-      //             name="email"
-      //             className="form-input"
-      //             placeholder="Email address"
-      //             required=""
-      //             data-form-input=""
-      //           />
-      //         </div>
-      //         <textarea
-      //           name="message"
-      //           className="form-input"
-      //           placeholder="Your Message"
-      //           required=""
-      //           data-form-input=""
-      //           defaultValue={""}
-      //         />
-      //         <button className="form-btn" type="submit" disabled="" data-form-btn="">
-      //           <ion-icon name="paper-plane" />
-      //           <span>Send Message</span>
-      //         </button>
-      //       </form>
-      //     </section>
-      //   </article>
-      // </div>
-
-      <div className="main-content">
-        <Row className="navbar">
-            <Nav
-              className="navbar-list"
-              variant="tabs"
-              activeKey={activeTab}
-              onSelect={(key) => setActiveTab(key)}
-            >
-              <Nav.Item className="navbar-item">
-                <Nav.Link eventKey="About" className="navbar-link">
-                  About
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item className="navbar-item">
-                <Nav.Link eventKey="Resume" className="navbar-link">
-                  Resume
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item className="navbar-item">
-                <Nav.Link eventKey="Portfolio" className="navbar-link">
-                  Portfolio
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item className="navbar-item">
-                <Nav.Link eventKey="Contact" className="navbar-link">
-                  Contact
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-        </Row>
-
-        <Row className="mt-2 mb-3">
-          <Col xs={12}>
-            {activeTab === "About" && (
-              <About/>
-            )}
-            {activeTab === 'Resume' && (
-              <Resume/>
-            )}
-            {activeTab === 'Portfolio' && (
-            <div>
-              <Portfolio/>
-            </div>
-            )}
-            {activeTab === 'Contact' && (
-            <div>
-              <Contact/>
-            </div>
-            )}
-          </Col>
-        </Row>
-      </div>
-    );
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          variants={pageVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+          className="w-full relative z-0 mt-0"
+        >
+          <div className="pt-0">
+            <ActiveComponent />
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
 }
 
 export default MainBar;

@@ -1,0 +1,26 @@
+[
+    {
+        "href": "https://medium.com/@rajkumarshanmugam/email-security-with-spf-dkim-dmark-c637a6eadf3d",
+        "img": "/content/images/blog/SPF.webp",
+        "category": "Cyber Security",
+        "date": "Feb 8, 2024",
+        "title": "Introduction to EMAIL Security",
+        "text": "Deep dive into SPF, DKIM, and DMARC to prevent email spoofing."
+    },
+    {
+        "href": "https://medium.com/@rajkumarshanmugam/how-to-easily-get-the-hall-of-fame-on-nasas-vulnerability-disclosure-program-833b75ba72be",
+        "img": "/content/images/blog/NASA.jpg",
+        "category": "Bug Bounty",
+        "date": "Sep 9, 2024",
+        "title": "Hall of Fame on NASA — I",
+        "text": "My journey to getting recognized on NASA's Vulnerability Disclosure Program."
+    },
+    {
+        "href": "https://medium.com/@rajkumarshanmugam/how-to-easily-get-the-hall-of-fame-on-nasas-vulnerability-disclosure-program-ii-4cc5c2a65f3b",
+        "img": "/content/images/blog/NASA.jpg",
+        "category": "Bug Bounty",
+        "date": "Oct 1, 2024",
+        "title": "Hall of Fame on NASA — II",
+        "text": "Technical walkthrough on discovering vulnerabilities in governmental assets."
+    }
+]

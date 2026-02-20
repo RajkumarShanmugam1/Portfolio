@@ -1,0 +1,36 @@
+{
+    "name": "Rajkumar Shanmugam",
+    "avatar": "/content/images/my-avatar.png",
+    "status": [
+        "Cyber Security Researcher",
+        "Project Engineer",
+        "Open Source contributor",
+        "CTF Player"
+    ],
+    "email": "rajkumarshanmugam151@gmail.com",
+    "location": "Karaikudi, Tamilnadu, India",
+    "birthday": "May 01, 2001",
+    "cvLink": "#",
+    "social": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/RajkumarShanmugam1",
+            "type": "icon"
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/in/rajkumarshanmugam1/",
+            "type": "icon"
+        },
+        {
+            "name": "Medium",
+            "url": "https://medium.com/@rajkumarshanmugam",
+            "type": "icon"
+        },
+        {
+            "name": "Credly",
+            "url": "https://www.credly.com/users/rajkumarshanmugam",
+            "type": "icon"
+        }
+    ]
+}

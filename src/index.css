@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@theme {
+    /* === AURORA FLUX — Premium Dark Theme === */
+
+    /* Backgrounds */
+    --color-site-bg: #06050f;
+    --color-background: #06050f;
+    --color-card-bg: rgba(18, 14, 46, 0.96);
+
+    /* ✨ Tricolor Accent System */
+    --color-accent-blue: #06b6d4;
+    /* Electric Cyan    */
+    --color-accent-purple: #a855f7;
+    /* Vivid Violet     */
+    --color-accent-pink: #ec4899;
+    /* Hot Rose/Magenta */
+    --color-accent-cyan: #22d3ee;
+    /* Bright Sky Cyan  */
+    --color-accent-indigo: #6366f1;
+    /* Electric Indigo  */
+    --color-accent-gold: #f59e0b;
+    /* Vivid Amber Gold (for highlights) */
+
+    /* Text System */
+    --color-text-primary: #f1f5f9;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #64748b;
+
+    /* Border Radius */
+    --radius-4xl: 2.25rem;
+
+    /* 🌟 Shadows - rich glows for each accent */
+    --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 30px 70px -15px rgba(0, 0, 0, 0.98), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    --shadow-glow-blue: 0 0 35px rgba(6, 182, 212, 0.40), 0 0 80px rgba(6, 182, 212, 0.15);
+    --shadow-glow-purple: 0 0 35px rgba(168, 85, 247, 0.40), 0 0 80px rgba(168, 85, 247, 0.15);
+    --shadow-glow-pink: 0 0 35px rgba(236, 72, 153, 0.40), 0 0 80px rgba(236, 72, 153, 0.15);
+    --shadow-glow-gold: 0 0 30px rgba(245, 158, 11, 0.45);
+
+    /* 🎨 Background Mesh - four corner gradients for depth */
+    --background-image-mesh:
+        radial-gradient(ellipse 80% 60% at 0% 0%, rgba(6, 182, 212, 0.13) 0px, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 100% 0%, rgba(168, 85, 247, 0.13) 0px, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(236, 72, 153, 0.09) 0px, transparent 50%),
+        radial-gradient(ellipse 60% 50% at 0% 100%, rgba(99, 102, 241, 0.09) 0px, transparent 50%);
+}
+
+@layer base {
+    body {
+        @apply text-text-primary font-sans selection:bg-accent-purple/30 selection:text-white;
+        background-color: var(--color-site-bg);
+        background-image: var(--background-image-mesh);
+        background-attachment: fixed;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-feature-settings: "cv11", "ss01";
+    }
+
+    /* Refined Scrollbar */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #06050f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #06b6d4, #a855f7, #ec4899);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ec4899;
+    }
+}
+
+@layer components {
+
+    /* ── Glass Card ── */
+    .glass {
+        @apply backdrop-blur-[48px] border border-white/[0.14] shadow-card relative overflow-hidden;
+        background: linear-gradient(135deg,
+                rgba(22, 16, 52, 0.97) 0%,
+                rgba(28, 14, 60, 0.99) 100%);
+    }
+
+    /* Prism top-border gradient — the signature of this theme */
+    .glass::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1.5px;
+        background: linear-gradient(to right,
+                transparent 0%,
+                rgba(6, 182, 212, 0.8) 20%,
+                rgba(99, 102, 241, 0.9) 45%,
+                rgba(168, 85, 247, 0.9) 65%,
+                rgba(236, 72, 153, 0.8) 80%,
+                transparent 100%);
+    }
+
+    /* Inner top-glow shimmer */
+    .glass::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to bottom, rgba(168, 85, 247, 0.04), transparent);
+        pointer-events: none;
+    }
+
+    .glass-hover {
+        @apply hover:border-white/[0.22] transition-all duration-500;
+
+        &:hover {
+            box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.2), 0 30px 70px -15px rgba(0, 0, 0, 0.98);
+        }
+    }
+
+    /* ── Primary Button ── */
+    .btn-primary {
+        @apply px-8 py-3 text-white font-black uppercase tracking-widest rounded-2xl transform hover:scale-[1.03] active:scale-95 transition-all duration-300 border border-white/10 relative overflow-hidden;
+        background: linear-gradient(135deg, #06b6d4 0%, #6366f1 45%, #a855f7 75%, #ec4899 100%);
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.4), 0 6px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-primary:hover {
+        box-shadow: 0 0 45px rgba(168, 85, 247, 0.65), 0 6px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Animated shimmer sweep */
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover::before {
+        left: 140%;
+    }
+
+    /* ── Text Glow ── */
+    .text-glow {
+        @apply text-white;
+        text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+    }
+
+    /* ── Card Accent Variants ── */
+    .card-accent-blue {
+        @apply border-accent-blue/25;
+        box-shadow: var(--shadow-glow-blue);
+    }
+
+    .card-accent-purple {
+        @apply border-accent-purple/25;
+        box-shadow: var(--shadow-glow-purple);
+    }
+
+    .card-accent-pink {
+        @apply border-accent-pink/25;
+        box-shadow: var(--shadow-glow-pink);
+    }
+
+    /* ── Gradient Text Helper ── */
+    .gradient-text {
+        background: linear-gradient(135deg, #22d3ee 0%, #818cf8 45%, #a855f7 70%, #ec4899 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* ── Animated Pulse Ring (for profile avatar) ── */
+    .ring-pulse {
+        animation: ring-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ring-pulse {
+
+        0%,
+        100% {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5), 0 0 50px rgba(168, 85, 247, 0.2);
+        }
+
+        50% {
+            box-shadow: 0 0 35px rgba(236, 72, 153, 0.5), 0 0 70px rgba(168, 85, 247, 0.3);
+        }
+    }
+
+    /* ── Neon Line Separator ── */
+    .neon-line {
+        height: 1.5px;
+        background: linear-gradient(to right, transparent, #06b6d4, #a855f7, #ec4899, transparent);
+        opacity: 0.6;
+    }
+}

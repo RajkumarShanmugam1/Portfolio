@@ -1,0 +1,84 @@
+{
+    "education": [
+        {
+            "title": "Mepco Schlenk Engineering College, Sivakasi, Tamilnadu",
+            "sub": "B.E. Computer Science",
+            "span": "2019 — 2023",
+            "href": "https://www.mepcoeng.ac.in/"
+        },
+        {
+            "title": "Government Higher Secondry School, (O.Siruvayal), Tamilnadu",
+            "sub": "HSC (11th and 12th Grade)",
+            "span": "2017 — 2019",
+            "href": "https://nammaschoolpavilion.tnschools.gov.in/pavillionnewviewapi/33230800202"
+        },
+        {
+            "title": "Government High School, (Thiruvelangudi), Tamilnadu",
+            "sub": "SSLC (10th Grade)",
+            "span": "Until 2017",
+            "href": "https://nammaschoolpavilion.tnschools.gov.in/pavillionnewviewapi/33230800304"
+        }
+    ],
+    "experience": [
+        {
+            "title": "Software Engineer",
+            "sub": "PALC Networks",
+            "span": "July,2025 — Present",
+            "desc": "Role: Backend Engineer (Network Management System)",
+            "href": "https://palcnetworks.com/"
+        },
+        {
+            "title": "Project Engineer",
+            "sub": "PALC Networks",
+            "span": "June,2023 — July,2025",
+            "desc": "Role: Network Security and IAM",
+            "href": "https://palcnetworks.com/"
+        },
+        {
+            "title": "Software Trainee",
+            "sub": "PALC Networks",
+            "span": "Feb,2023 — June,2023",
+            "desc": "Role: Intern",
+            "href": "https://palcnetworks.com/"
+        }
+    ],
+    "hobbies": [
+        {
+            "title": "Cybersecurity Research",
+            "sub": "Ensure cybersecurity through awareness and research",
+            "icon": "shield"
+        },
+        {
+            "title": "Numismatics",
+            "sub": "Collecting the currency, coins and stamps",
+            "icon": "coins"
+        },
+        {
+            "title": "Bibliophile",
+            "sub": "Collect and read the books",
+            "icon": "book"
+        }
+    ],
+    "skills": [
+        {
+            "label": "Computer Networks",
+            "value": 60,
+            "color": "from-accent-blue to-accent-cyan"
+        },
+        {
+            "label": "Web Security",
+            "value": 40,
+            "color": "from-accent-cyan to-accent-purple"
+        },
+        {
+            "label": "IAM",
+            "value": 50,
+            "color": "from-accent-purple to-accent-blue"
+        },
+        {
+            "label": "OS - Linux & Windows",
+            "value": 50,
+            "color": "from-accent-blue to-accent-cyan"
+        }
+    ]
+}
