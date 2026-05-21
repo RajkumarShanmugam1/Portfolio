@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import {
-  FaChevronDown, FaChevronUp,
-  FaEnvelope, FaCalendarDays, FaAward, FaUser, FaCircleInfo,
-  FaFileLines, FaTrophy, FaRss, FaPhone, FaHandshakeAngle, FaCoins, FaBriefcase
+  FaCircleInfo,
+  FaFileLines, FaRss, FaPhone, FaBriefcase
 } from 'react-icons/fa6';
-import { FaGithub, FaLinkedin, FaMedium } from 'react-icons/fa';
-import { SiCredly } from 'react-icons/si';
 import About from './About';
 import Resume from './Resume';
 import Portfolio from './Portfolio';
@@ -14,46 +11,71 @@ import Blog from './Blog';
 import Contact from './Contact';
 
 const tabs = [
-  { name: 'About', icon: <FaCircleInfo /> },
-  { name: 'Resume', icon: <FaFileLines /> },
-  { name: 'Portfolio', icon: <FaBriefcase /> },
-  { name: 'Blog', icon: <FaRss /> },
-  { name: 'Contact', icon: <FaPhone /> }
+  { name: 'About', icon: <FaCircleInfo />, id: 'about-section' },
+  { name: 'Resume', icon: <FaFileLines />, id: 'resume-section' },
+  { name: 'Portfolio', icon: <FaBriefcase />, id: 'portfolio-section' },
+  { name: 'Blog', icon: <FaRss />, id: 'blog-section' },
+  { name: 'Contact', icon: <FaPhone />, id: 'contact-section' }
 ];
-
-const pageVariants = {
-  initial: { opacity: 0, scale: 0.98 },
-  animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 1.02 },
-};
-
-const components = {
-  About: About,
-  Resume: Resume,
-  Portfolio: Portfolio,
-  Blog: Blog,
-  Contact: Contact,
-};
 
 function MainBar() {
   const [activeTab, setActiveTab] = useState('About');
-  const ActiveComponent = components[activeTab];
+
+  // To handle scrolling
+  const scrollToSection = (id, name) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Adjusted for sticky header offset
+      const y = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setActiveTab(name);
+    }
+  };
+
+  // Setup intersection observer to update active tab on scroll
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -60% 0px', // Trigger when section is in the upper part of the viewport
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const tab = tabs.find(t => t.id === id);
+          if (tab) {
+            setActiveTab(tab.name);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    tabs.forEach(tab => {
+      const element = document.getElementById(tab.id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="flex-1 min-w-0 space-y-0 pb-12 relative">
-      {/* Sticky Fade Effect Zone */}
-      <div className="sticky top-0 z-40 h-24 pointer-events-none bg-gradient-to-b from-site-bg via-site-bg/80 to-transparent -mb-24" />
-
       {/* Sticky Tab Navigation */}
-      <nav className="sticky top-0 z-50 pt-1 pb-1">
-        <div className="glass rounded-2xl p-1 lg:p-1.5 flex justify-center">
-          <ul className="flex flex-wrap items-center justify-center gap-1">
+      <nav className="sticky top-0 z-[999] pt-0.5 pb-0.5 pointer-events-none">
+        <div className="glass rounded-xl p-0.5 flex justify-center pointer-events-auto inline-block mx-auto">
+          <ul className="flex flex-wrap items-center justify-center gap-0.5">
             {tabs.map(tab => (
               <li key={tab.name} className="relative">
                 <button
-                  className={`px-3 sm:px-6 py-2 sm:py-2.5 text-[11px] sm:text-sm font-black transition-all duration-300 rounded-xl whitespace-nowrap flex items-center gap-2
+                  className={`px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-black transition-all duration-300 rounded-lg whitespace-nowrap flex items-center gap-1.5
                     ${activeTab === tab.name ? 'text-white' : 'text-text-secondary hover:text-white hover:bg-white/5'}`}
-                  onClick={() => setActiveTab(tab.name)}
+                  onClick={() => scrollToSection(tab.id, tab.name)}
                 >
                   <span className="relative z-10 inline-block">{tab.icon}</span>
                   <span className="relative z-10">{tab.name}</span>
@@ -61,7 +83,7 @@ function MainBar() {
                     <motion.div
                       layoutId="active-pill"
                       className="absolute inset-0 rounded-xl"
-                      style={{ background: 'linear-gradient(135deg, #06b6d4, #6366f1, #a855f7, #ec4899)', boxShadow: '0 0 25px rgba(168,85,247,0.5), 0 0 60px rgba(99,102,241,0.2)' }}
+                      style={{ background: 'linear-gradient(135deg, #06b6d4, #6366f1, #a855f7, #ec4899)', boxShadow: '0 0 15px rgba(168,85,247,0.4)', pointerEvents: 'none' }}
                       transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
                     />
                   )}
@@ -72,21 +94,23 @@ function MainBar() {
         </div>
       </nav>
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          variants={pageVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-          className="w-full relative z-0 mt-0"
-        >
-          <div className="pt-0">
-            <ActiveComponent />
+      <div className="w-full relative z-0 mt-8 space-y-16">
+          <div id="about-section" className="scroll-mt-24">
+            <About />
           </div>
-        </motion.div>
-      </AnimatePresence>
+          <div id="resume-section" className="scroll-mt-24">
+            <Resume />
+          </div>
+          <div id="portfolio-section" className="scroll-mt-24">
+            <Portfolio />
+          </div>
+          <div id="blog-section" className="scroll-mt-24">
+            <Blog />
+          </div>
+          <div id="contact-section" className="scroll-mt-24">
+            <Contact />
+          </div>
+      </div>
     </div>
   );
 }

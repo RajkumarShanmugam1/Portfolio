@@ -7,21 +7,6 @@ const Collection = () => {
     return (
         <div className="space-y-10">
 
-            {/* ── Header ── */}
-            <header className="flex items-center gap-5">
-                <div className="p-3.5 rounded-2xl text-accent-pink text-3xl border border-white/10 shadow-glow-pink flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, rgba(236,72,153,0.15), rgba(168,85,247,0.10))' }}>
-                    <FaCoins />
-                </div>
-                <div>
-                    <h2 className="text-4xl lg:text-5xl font-black pb-1"
-                        style={{ background: 'linear-gradient(135deg, #fff 0%, #22d3ee 40%, #a855f7 70%, #ec4899 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                        Collection
-                    </h2>
-                    <div className="w-24 h-[3px] rounded-full"
-                        style={{ background: 'linear-gradient(to right, #06b6d4, #6366f1, #a855f7, #ec4899)' }} />
-                </div>
-            </header>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
                 {collectionData.length === 0 ? (
@@ -33,9 +18,10 @@ const Collection = () => {
                 ) : collectionData.map((item, i) => (
                     <motion.div
                         key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1, duration: 0.5 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
                         className="relative group overflow-hidden rounded-3xl border-[1.5px] border-white/[0.12] bg-white/[0.07] transition-all duration-500 hover:-translate-y-2 cursor-pointer"
                         style={{
                             boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)',

@@ -8,11 +8,16 @@ import { FaFilePdf } from 'react-icons/fa';
 import resumeData from '../../data/resume.json';
 
 const fadeInUp = (i) => ({
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, x: -25, scale: 0.95 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    x: 0,
+    scale: 1,
+    transition: {
+      delay: i * 0.12,
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1]
+    },
   },
 });
 
@@ -67,13 +72,26 @@ const Resume = () => (
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 pt-2">
 
-      {/* Education */}
       <section>
         <SectionHeader accent={sectionAccents.education} label="Education" />
-        <div className="relative border-l-2 border-white/[0.06] pl-8 space-y-10">
+        <div className="relative pl-8 space-y-10">
+          {/* Animated line */}
+          <motion.div
+            initial={{ height: 0 }}
+            whileInView={{ height: '100%' }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute left-0 top-2 w-[2px] bg-white/[0.08]"
+          />
           {resumeData.education.map((item, i) => (
-            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
-              <div className={`absolute -left-[41px] top-1.5 w-4 h-4 rounded-full ${sectionAccents.education.dot} border-4 border-[#06050f] ${sectionAccents.education.glow} z-10 group-hover:scale-125 transition-transform duration-300`} />
+            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="relative group cursor-default">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 + 0.3, type: "spring", stiffness: 200 }}
+                className={`absolute -left-[41px] top-1.5 w-4 h-4 rounded-full ${sectionAccents.education.dot} border-4 border-[#06050f] ${sectionAccents.education.glow} z-10 group-hover:scale-125 transition-transform duration-300`}
+              />
               <h4 className={`text-base font-black text-text-primary group-hover:${sectionAccents.education.text} transition-colors`}>
                 {item.href ? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a> : item.title}
               </h4>
@@ -84,13 +102,26 @@ const Resume = () => (
         </div>
       </section>
 
-      {/* Experience */}
       <section>
         <SectionHeader accent={sectionAccents.experience} label="Experience" />
-        <div className="relative border-l-2 border-white/[0.06] pl-8 space-y-10">
+        <div className="relative pl-8 space-y-10">
+          {/* Animated line */}
+          <motion.div
+            initial={{ height: 0 }}
+            whileInView={{ height: '100%' }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute left-0 top-2 w-[2px] bg-white/[0.08]"
+          />
           {resumeData.experience.map((item, i) => (
-            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
-              <div className={`absolute -left-[41px] top-1.5 w-4 h-4 rounded-full ${sectionAccents.experience.dot} border-4 border-[#06050f] ${sectionAccents.experience.glow} z-10 group-hover:scale-125 transition-transform duration-300`} />
+            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="relative group cursor-default">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 + 0.3, type: "spring", stiffness: 200 }}
+                className={`absolute -left-[41px] top-1.5 w-4 h-4 rounded-full ${sectionAccents.experience.dot} border-4 border-[#06050f] ${sectionAccents.experience.glow} z-10 group-hover:scale-125 transition-transform duration-300`}
+              />
               <h4 className={`text-base font-black text-text-primary group-hover:${sectionAccents.experience.text} transition-colors`}>
                 {item.href ? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a> : item.title}
               </h4>

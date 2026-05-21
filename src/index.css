@@ -202,4 +202,39 @@
         background: linear-gradient(to right, transparent, #06b6d4, #a855f7, #ec4899, transparent);
         opacity: 0.6;
     }
+
+    /* ── Nebula Flux Background Animation ── */
+    @keyframes nebula-flux {
+        0% {
+            transform: translate(0, 0) scale(1.1);
+            filter: blur(80px) hue-rotate(0deg);
+            opacity: 0.5;
+        }
+
+        33% {
+            transform: translate(8%, -12%) scale(1.2);
+            filter: blur(100px) hue-rotate(15deg);
+            opacity: 0.7;
+        }
+
+        66% {
+            transform: translate(-12%, 8%) scale(1);
+            filter: blur(70px) hue-rotate(-15deg);
+            opacity: 0.4;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1.1);
+            filter: blur(80px) hue-rotate(0deg);
+            opacity: 0.5;
+        }
+    }
+
+    .animate-nebula-flux {
+        animation: nebula-flux 18s ease-in-out infinite;
+    }
+
+    .animate-nebula-flux-slow {
+        animation: nebula-flux 22s ease-in-out infinite reverse;
+    }
 }

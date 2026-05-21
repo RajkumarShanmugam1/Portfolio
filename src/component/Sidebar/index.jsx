@@ -37,10 +37,17 @@ const Sidebar = () => {
       <div className="glass glass-hover rounded-[2rem] overflow-hidden group">
 
         {/* ── Profile Header ── */}
-        <div className="flex flex-row lg:flex-col items-center gap-3 lg:gap-4 pt-0 lg:pt-1 px-5 lg:px-10 pb-4 lg:pb-5 relative overflow-hidden">
+        <div className="flex flex-row lg:flex-col items-center gap-3 lg:gap-4 pt-6 lg:pt-8 px-5 lg:px-10 pb-6 lg:pb-8 relative overflow-hidden">
+          {/* ── Realistic Nebula Background ── */}
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-80">
+            <div className="absolute top-[-15%] left-[-15%] w-[70%] h-[70%] bg-[#4c1d95]/30 rounded-full blur-[100px] animate-nebula-flux" />
+            <div className="absolute bottom-[-15%] right-[-15%] w-[70%] h-[70%] bg-[#0891b2]/20 rounded-full blur-[100px] animate-nebula-flux-slow" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] bg-[#be185d]/10 rounded-full blur-[80px] animate-pulse" />
+          </div>
+
           {/* Ambient top glow */}
-          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-30 pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%)' }} />
+          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-60 pointer-events-none z-10"
+            style={{ background: 'radial-gradient(circle, rgba(168,85,247,0.6) 0%, transparent 70%)' }} />
 
           <div className="relative shrink-0 group/avatar">
             {/* Pulsating back-glow */}
@@ -151,7 +158,7 @@ const Sidebar = () => {
           to { transform: rotate(360deg); }
         }
         .animate-spin-slow {
-          animation: spin-slow 6s linear infinite;
+          animation: spin-slow 6.4s linear infinite;
         }
       `}</style>
     </aside>

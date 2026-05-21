@@ -40,133 +40,95 @@ export default function CinematicSpace() {
         let stars = [];
         let brightStars = [];
         let shootingStars = [];
-        let galaxyParticles = [];
+        let nebulaParticles = [];
         let nextShoot = Date.now() + rand(4000, 8000);
+
+        // Optimization: Offscreen layers
+        const starCanvas = document.createElement('canvas');
+        const dustCanvas = document.createElement('canvas');
+        const starCtx = starCanvas.getContext('2d');
+        const dustCtx = dustCanvas.getContext('2d');
 
         /* ─── SCENE INITIALIZATION ─── */
         function init() {
             W = canvas.width = window.innerWidth;
             H = canvas.height = window.innerHeight;
 
+            starCanvas.width = dustCanvas.width = W;
+            starCanvas.height = dustCanvas.height = H;
+
             // 1. STARFIELD (Static depth)
-            stars = [];
-            const starCount = Math.floor((W * H) / 1000);
+            const starCount = Math.floor((W * H) / 1500);
+            starCtx.clearRect(0, 0, W, H);
             for (let i = 0; i < starCount; i++) {
                 const [r, g, b] = stellarColor();
-                stars.push({
-                    x: rand(0, W),
-                    y: rand(0, H),
-                    size: rand(0.1, 0.7),
-                    alpha: rand(0.1, 0.6),
-                    r, g, b,
-                    phase: rand(0, Math.PI * 2),
-                    speed: rand(0.005, 0.02),
-                    px: rand(0.005, 0.012) // parallax
+                const x = rand(0, W);
+                const y = rand(0, H);
+                const size = rand(0.1, 0.6);
+                const alpha = rand(0.1, 0.5);
+                starCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+                starCtx.beginPath();
+                starCtx.arc(x, y, size, 0, Math.PI * 2);
+                starCtx.fill();
+            }
+
+            // 2. FINE DUST (Pre-rendered)
+            dustCtx.clearRect(0, 0, W, H);
+            dustCtx.fillStyle = '#fff';
+            for (let i = 0; i < 1500; i++) {
+                dustCtx.globalAlpha = rand(0.02, 0.08);
+                dustCtx.fillRect(rand(0, W), rand(0, H), rand(0.3, 0.8), rand(0.3, 0.8));
+            }
+            dustCtx.globalAlpha = 1;
+
+            // 3. NEBULA GASEOUS PARTICLES (Dynamic)
+            nebulaParticles = [];
+            const gasColors = [[76, 29, 149, 0.02], [8, 145, 178, 0.015], [190, 24, 93, 0.012], [30, 58, 138, 0.018]];
+            for (let i = 0; i < 200; i++) {
+                nebulaParticles.push({
+                    x: rand(-W * 0.2, W * 1.2), y: rand(-H * 0.2, H * 1.2),
+                    size: rand(W * 0.15, W * 0.35), color: gasColors[i % 4],
+                    vx: rand(-0.015, 0.015), vy: rand(-0.015, 0.015), px: rand(0.01, 0.03)
                 });
             }
 
-            // 2. BRIGHT STARS (Foreground)
+            // 4. BRIGHT STARS & CLUSTERS
             brightStars = [];
-            const brightCount = Math.floor((W * H) / 9000);
-            for (let i = 0; i < brightCount; i++) {
-                const [r, g, b] = stellarColor();
-                brightStars.push({
-                    x: rand(0, W),
-                    y: rand(0, H),
-                    size: rand(0.9, 2.2),
-                    alpha: rand(0.5, 0.9),
-                    r, g, b,
-                    phase: rand(0, Math.PI * 2),
-                    speed: rand(0.01, 0.03),
-                    px: rand(0.02, 0.04)
-                });
-            }
-
-            // 3. SPIRAL GALAXY PARTICLES
-            galaxyParticles = [];
-            const numArms = 3;
-            const armTightness = 0.5;
-            const galaxyCenter = { x: W * 0.75, y: H * 0.35 };
-            const galaxySize = Math.min(W, H) * 0.45;
-
-            for (let i = 0; i < 1800; i++) {
-                const angle = rand(0, Math.PI * 2 * 3); // ~3 rotations
-                const arm = Math.floor(rand(0, numArms)) * (Math.PI * 2 / numArms);
-                const rFactor = Math.pow(rand(0, 1), 1.5); // Density toward center
-                const distance = rFactor * galaxySize;
-
-                // Logarithmic spiral formula: r = a * e^(b * theta)
-                const spiralAngle = angle + arm;
-                const spread = (galaxySize * 0.1) * (1 - rFactor) + rand(-20, 20);
-
-                galaxyParticles.push({
-                    distance,
-                    angle: spiralAngle,
-                    arm,
-                    size: rand(0.2, 0.9),
-                    color: stellarColor(),
-                    alpha: (1 - rFactor) * rand(0.2, 0.8),
-                    spread
-                });
-            }
+            const clusters = [
+                { x: W * 0.2, y: H * 0.3, spread: 150, count: 10 },
+                { x: W * 0.8, y: H * 0.7, spread: 200, count: 12 }
+            ];
+            clusters.forEach(c => {
+                for (let i = 0; i < c.count; i++) {
+                    const [r, g, b] = stellarColor();
+                    brightStars.push({
+                        x: c.x + rand(-c.spread, c.spread), y: c.y + rand(-c.spread, c.spread),
+                        size: rand(0.8, 1.6), alpha: rand(0.4, 0.7),
+                        r, g, b, phase: rand(0, Math.PI * 2), speed: rand(0.01, 0.03), px: rand(0.015, 0.035)
+                    });
+                }
+            });
         }
 
         /* ─── DRAWING FUNCTIONS ─── */
 
-        function drawGalaxy() {
-            const centerX = W * 0.75 + (mx - W / 2) * 0.005;
-            const centerY = H * 0.35 + (my - H / 2) * 0.005;
-
-            galaxyParticles.forEach(p => {
-                // Rotate slowly
-                p.angle += 0.0005;
-
-                const x = centerX + Math.cos(p.angle) * p.distance + rand(-1, 1) * p.spread;
-                const y = centerY + Math.sin(p.angle) * p.distance * 0.4 + rand(-1, 1) * p.spread; // Compressed for tilt
-
-                if (x < 0 || x > W || y < 0 || y > H) return;
-
-                const [r, g, b] = p.color;
-                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${p.alpha})`;
-                ctx.beginPath();
-                ctx.arc(x, y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-            });
-
-            // Center glow
-            const grd = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 100);
-            grd.addColorStop(0, 'rgba(255, 230, 200, 0.15)');
-            grd.addColorStop(1, 'transparent');
-            ctx.fillStyle = grd;
-            ctx.fillRect(centerX - 100, centerY - 100, 200, 200);
-        }
-
         function drawNebulae() {
-            const blobs = [
-                { x: 0.1, y: 0.2, rx: 0.4, ry: 0.3, color: '80, 50, 200', a: 0.04 },
-                { x: 0.8, y: 0.1, rx: 0.3, ry: 0.2, color: '150, 30, 180', a: 0.035 },
-                { x: 0.4, y: 0.8, rx: 0.45, ry: 0.35, color: '40, 70, 220', a: 0.03 },
-                { x: 0.7, y: 0.5, rx: 0.25, ry: 0.2, color: '200, 50, 100', a: 0.025 }
-            ];
+            ctx.globalCompositeOperation = 'screen';
+            nebulaParticles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < -p.size) p.x = W + p.size; if (p.x > W + p.size) p.x = -p.size;
+                if (p.y < -p.size) p.y = H + p.size; if (p.y > H + p.size) p.y = -p.size;
 
-            blobs.forEach(b => {
-                const cx = b.x * W + (mx - W / 2) * 0.002;
-                const cy = b.y * H + (my - H / 2) * 0.002;
-                const rx = b.rx * W;
-                const ry = b.ry * H;
-
-                ctx.save();
-                ctx.translate(cx, cy);
-                ctx.scale(rx, ry);
-                const grd = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
-                grd.addColorStop(0, `rgba(${b.color}, ${b.a})`);
+                const sx = p.x + (mx - W / 2) * p.px;
+                const sy = p.y + (my - H / 2) * p.px;
+                const grd = ctx.createRadialGradient(sx, sy, 0, sx, sy, p.size);
+                const [r, g, b, a] = p.color;
+                grd.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${a})`);
                 grd.addColorStop(1, 'transparent');
                 ctx.fillStyle = grd;
-                ctx.beginPath();
-                ctx.arc(0, 0, 1, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.restore();
+                ctx.beginPath(); ctx.arc(sx, sy, p.size, 0, Math.PI * 2); ctx.fill();
             });
+            ctx.globalCompositeOperation = 'source-over';
         }
 
         function drawStar(s) {
@@ -176,79 +138,49 @@ export default function CinematicSpace() {
             const sy = s.y + (my - H / 2) * s.px;
 
             ctx.fillStyle = `rgba(${s.r}, ${s.g}, ${s.b}, ${alpha})`;
-            ctx.beginPath();
-            ctx.arc(sx, sy, s.size, 0, Math.PI * 2);
-            ctx.fill();
+            ctx.beginPath(); ctx.arc(sx, sy, s.size, 0, Math.PI * 2); ctx.fill();
 
-            // Diffraction spikes for foreground stars
             if (s.size > 1.2) {
-                const len = s.size * 6;
-                const spikeAlpha = alpha * 0.4;
+                const len = s.size * 7;
                 ctx.lineWidth = 0.5;
-
-                // Horizontal
-                const hGrd = ctx.createLinearGradient(sx - len, sy, sx + len, sy);
-                hGrd.addColorStop(0, 'transparent');
-                hGrd.addColorStop(0.5, `rgba(${s.r}, ${s.g}, ${s.b}, ${spikeAlpha})`);
-                hGrd.addColorStop(1, 'transparent');
-                ctx.strokeStyle = hGrd;
+                ctx.strokeStyle = `rgba(${s.r}, ${s.g}, ${s.b}, ${alpha * 0.25})`;
                 ctx.beginPath(); ctx.moveTo(sx - len, sy); ctx.lineTo(sx + len, sy); ctx.stroke();
-
-                // Vertical
-                const vGrd = ctx.createLinearGradient(sx, sy - len, sx, sy + len);
-                vGrd.addColorStop(0, 'transparent');
-                vGrd.addColorStop(0.5, `rgba(${s.r}, ${s.g}, ${s.b}, ${spikeAlpha})`);
-                vGrd.addColorStop(1, 'transparent');
-                ctx.strokeStyle = vGrd;
                 ctx.beginPath(); ctx.moveTo(sx, sy - len); ctx.lineTo(sx, sy + len); ctx.stroke();
             }
-        }
-
-        function drawShootingStar(s) {
-            const spd = Math.hypot(s.vx, s.vy);
-            const tx = s.x - (s.vx / spd) * s.tail;
-            const ty = s.y - (s.vy / spd) * s.tail;
-
-            const grd = ctx.createLinearGradient(tx, ty, s.x, s.y);
-            grd.addColorStop(0, 'transparent');
-            grd.addColorStop(1, `rgba(255, 255, 255, ${s.alpha})`);
-
-            ctx.strokeStyle = grd;
-            ctx.lineWidth = s.width;
-            ctx.lineCap = 'round';
-            ctx.beginPath();
-            ctx.moveTo(tx, ty);
-            ctx.lineTo(s.x, s.y);
-            ctx.stroke();
-
-            s.x += s.vx;
-            s.y += s.vy;
-            s.alpha -= 0.012;
         }
 
         function loop() {
             ctx.clearRect(0, 0, W, H);
             frame++;
 
-            drawNebulae();
-            drawGalaxy();
+            // Draw pre-rendered layers with parallax
+            ctx.drawImage(starCanvas, (mx - W / 2) * 0.005, (my - H / 2) * 0.005);
+            ctx.drawImage(dustCanvas, (mx - W / 2) * 0.015, (my - H / 2) * 0.015);
 
-            stars.forEach(drawStar);
+            drawNebulae();
             brightStars.forEach(drawStar);
 
             if (Date.now() > nextShoot) {
                 const ang = rand(20, 45) * Math.PI / 180;
-                const spd = rand(10, 18);
                 shootingStars.push({
                     x: rand(0, W * 0.7), y: rand(0, H * 0.4),
-                    vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd,
-                    alpha: 1, tail: rand(60, 140), width: rand(0.8, 1.8)
+                    vx: Math.cos(ang) * 12, vy: Math.sin(ang) * 12,
+                    alpha: 1, tail: rand(60, 140), width: rand(0.8, 1.5)
                 });
                 nextShoot = Date.now() + rand(5000, 15000);
             }
 
             shootingStars = shootingStars.filter(s => s.alpha > 0.05);
-            shootingStars.forEach(drawShootingStar);
+            shootingStars.forEach(s => {
+                const spd = Math.hypot(s.vx, s.vy);
+                const tx = s.x - (s.vx / spd) * s.tail;
+                const ty = s.y - (s.vy / spd) * s.tail;
+                const grd = ctx.createLinearGradient(tx, ty, s.x, s.y);
+                grd.addColorStop(0, 'transparent'); grd.addColorStop(1, `rgba(255, 255, 255, ${s.alpha})`);
+                ctx.strokeStyle = grd; ctx.lineWidth = s.width;
+                ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(s.x, s.y); ctx.stroke();
+                s.x += s.vx; s.y += s.vy; s.alpha -= 0.012;
+            });
 
             raf = requestAnimationFrame(loop);
         }

@@ -36,6 +36,13 @@ const cardAccents = [
 
 const About = () => (
   <article className="glass p-8 pt-6 lg:p-12 lg:pt-8 rounded-4xl space-y-10 animate-fadeIn relative">
+    {/* ── Realistic Nebula Background ── */}
+    <div className="absolute inset-0 z-0 pointer-events-none opacity-60 overflow-hidden rounded-4xl">
+      <div className="absolute top-[-15%] right-[-15%] w-[70%] h-[60%] bg-[#4c1d95]/20 rounded-full blur-[110px] animate-nebula-flux" />
+      <div className="absolute bottom-[-15%] left-[-15%] w-[60%] h-[50%] bg-[#0891b2]/15 rounded-full blur-[90px] animate-nebula-flux-slow" />
+      <div className="absolute top-[20%] left-[30%] w-[45%] h-[35%] bg-[#be185d]/10 rounded-full blur-[100px] animate-pulse" />
+    </div>
+
     {/* Ambient corner glows */}
     <div className="absolute top-0 right-0 w-[500px] h-[400px] -z-10 pointer-events-none"
       style={{ background: 'radial-gradient(ellipse at top right, rgba(168,85,247,0.08) 0%, transparent 70%)' }} />

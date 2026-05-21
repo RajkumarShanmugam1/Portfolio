@@ -7,21 +7,6 @@ const Achievements = () => {
     return (
         <div className="space-y-10">
 
-            {/* ── Header ── */}
-            <header className="flex items-center gap-5">
-                <div className="p-3.5 rounded-2xl text-accent-gold text-3xl border border-white/10 flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(168,85,247,0.10))', boxShadow: '0 0 30px rgba(245,158,11,0.3)' }}>
-                    <FaAward />
-                </div>
-                <div>
-                    <h2 className="text-4xl lg:text-5xl font-black pb-1"
-                        style={{ background: 'linear-gradient(135deg, #fff 0%, #22d3ee 40%, #a855f7 70%, #ec4899 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                        Achievements
-                    </h2>
-                    <div className="w-28 h-[3px] rounded-full"
-                        style={{ background: 'linear-gradient(to right, #06b6d4, #6366f1, #a855f7, #ec4899)' }} />
-                </div>
-            </header>
 
             <motion.ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" layout>
                 <AnimatePresence>
