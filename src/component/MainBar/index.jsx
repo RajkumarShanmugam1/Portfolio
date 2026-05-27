@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   FaCircleInfo,
-  FaFileLines, FaRss, FaPhone, FaBriefcase
+  FaFileLines, FaRss, FaPhone, FaBriefcase, FaAward
 } from 'react-icons/fa6';
 import About from './About';
 import Resume from './Resume';
 import Portfolio from './Portfolio';
+import Achievements from './Achievements';
 import Blog from './Blog';
 import Contact from './Contact';
 
@@ -14,6 +15,7 @@ const tabs = [
   { name: 'About', icon: <FaCircleInfo />, id: 'about-section' },
   { name: 'Resume', icon: <FaFileLines />, id: 'resume-section' },
   { name: 'Portfolio', icon: <FaBriefcase />, id: 'portfolio-section' },
+  { name: 'Awards', icon: <FaAward />, id: 'awards-section' },
   { name: 'Blog', icon: <FaRss />, id: 'blog-section' },
   { name: 'Contact', icon: <FaPhone />, id: 'contact-section' }
 ];
@@ -82,9 +84,8 @@ function MainBar() {
                   {activeTab === tab.name && (
                     <motion.div
                       layoutId="active-pill"
-                      className="absolute inset-0 rounded-xl"
-                      style={{ background: 'linear-gradient(135deg, #06b6d4, #6366f1, #a855f7, #ec4899)', boxShadow: '0 0 15px rgba(168,85,247,0.4)', pointerEvents: 'none' }}
-                      transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
+                      className="absolute inset-0 rounded-lg bg-white/10 border border-white/20 pointer-events-none"
+                      transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
                     />
                   )}
                 </button>
@@ -103,6 +104,9 @@ function MainBar() {
           </div>
           <div id="portfolio-section" className="scroll-mt-24">
             <Portfolio />
+          </div>
+          <div id="awards-section" className="scroll-mt-24">
+            <Achievements />
           </div>
           <div id="blog-section" className="scroll-mt-24">
             <Blog />

@@ -22,38 +22,19 @@ const Collection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
-                        className="relative group overflow-hidden rounded-3xl border-[1.5px] border-white/[0.12] bg-white/[0.07] transition-all duration-500 hover:-translate-y-2 cursor-pointer"
-                        style={{
-                            boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)',
-                        }}
-                        onMouseEnter={e => {
-                            e.currentTarget.style.borderColor = 'transparent';
-                            e.currentTarget.style.backgroundImage = 'linear-gradient(#111, #111), linear-gradient(135deg, #06b6d4, #a855f7, #ec4899)';
-                            e.currentTarget.style.backgroundOrigin = 'border-box';
-                            e.currentTarget.style.backgroundClip = 'padding-box, border-box';
-                            e.currentTarget.style.boxShadow = '0 0 40px rgba(168,85,247,0.25)';
-                        }}
-                        onMouseLeave={e => {
-                            e.currentTarget.style.borderColor = '';
-                            e.currentTarget.style.backgroundImage = '';
-                            e.currentTarget.style.boxShadow = '';
-                        }}
+                        className="relative group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 cursor-pointer"
                     >
-                        {/* Shimmer overlay */}
-                        <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30"
-                            style={{ background: 'linear-gradient(to right, #06b6d4, #6366f1, #a855f7, #ec4899)' }} />
-
                         <div className="aspect-video overflow-hidden relative">
                             <img
                                 src={item.img}
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-70 group-hover:opacity-100 scale-100 group-hover:scale-110"
+                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100 group-hover:scale-105"
                                 alt={item.title}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#06050f] via-transparent to-transparent opacity-60" />
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
                         </div>
                         <div className="p-6 relative z-10">
-                            <h3 className="text-lg font-black text-white group-hover:text-glow transition-all">{item.title}</h3>
-                            <p className="text-text-secondary text-sm font-medium mt-1">{item.sub}</p>
+                            <h3 className="text-lg font-semibold text-white transition-all line-clamp-1">{item.title}</h3>
+                            <p className="text-text-secondary text-sm mt-1 line-clamp-2">{item.sub}</p>
                         </div>
                     </motion.div>
                 ))}

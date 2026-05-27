@@ -24,51 +24,30 @@ const Achievements = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.4, delay: i * 0.05 }}
-                            className="relative group overflow-hidden rounded-3xl border-[1.5px] border-white/[0.12] bg-white/[0.07] transition-all duration-500 hover:-translate-y-2 cursor-pointer"
-                            style={{
-                                boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)',
-                            }}
-                            onMouseEnter={e => {
-                                e.currentTarget.style.borderColor = 'transparent';
-                                e.currentTarget.style.backgroundImage = 'linear-gradient(#111, #111), linear-gradient(135deg, #06b6d4, #a855f7, #ec4899)';
-                                e.currentTarget.style.backgroundOrigin = 'border-box';
-                                e.currentTarget.style.backgroundClip = 'padding-box, border-box';
-                                e.currentTarget.style.boxShadow = '0 0 40px rgba(168,85,247,0.25)';
-                            }}
-                            onMouseLeave={e => {
-                                e.currentTarget.style.borderColor = '';
-                                e.currentTarget.style.backgroundImage = '';
-                                e.currentTarget.style.boxShadow = '';
-                            }}
+                            className="relative group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 cursor-pointer"
                         >
-                            {/* Gradient top accent line */}
-                            <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30"
-                                style={{ background: 'linear-gradient(to right, #06b6d4, #6366f1, #a855f7, #ec4899)' }} />
-
                             <a href={p.href} target="_blank" rel="noreferrer" className="block w-full">
                                 <div className="aspect-[4/3] overflow-hidden relative">
                                     <img
                                         src={p.img}
                                         alt={p.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#06050f] via-transparent to-transparent opacity-80" />
+                                    <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
 
                                     {/* Hover overlay */}
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
-                                        <div className="w-12 h-12 flex items-center justify-center text-white rounded-full border border-white/20 scale-50 group-hover:scale-100 transition-transform duration-500"
-                                            style={{ background: 'rgba(6,182,212,0.2)', backdropFilter: 'blur(12px)', boxShadow: '0 0 25px rgba(6,182,212,0.4)' }}>
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
+                                        <div className="w-12 h-12 flex items-center justify-center text-white bg-accent-blue rounded-full scale-50 group-hover:scale-100 transition-transform duration-300 shadow-lg">
                                             <FaEye size={20} />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="p-5 space-y-2 relative z-10">
-                                    <p className="text-[10px] font-black uppercase tracking-[0.2em] border border-white/10 px-3 py-1 rounded-full inline-block"
-                                        style={{ color: '#22d3ee', background: 'rgba(6,182,212,0.10)' }}>
+                                    <p className="text-[10px] font-semibold uppercase tracking-wider border border-white/10 px-2 py-1 rounded text-text-secondary bg-white/5 inline-block">
                                         {p.sub}
                                     </p>
-                                    <h3 className="text-base font-black text-white leading-tight group-hover:text-glow transition-all line-clamp-1">{p.title}</h3>
+                                    <h3 className="text-base font-semibold text-white leading-tight line-clamp-1">{p.title}</h3>
                                 </div>
                             </a>
                         </motion.li>

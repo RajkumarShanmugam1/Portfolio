@@ -2,10 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   FaGraduationCap, FaBriefcase, FaLeaf,
-  FaShieldHalved, FaCoins, FaBookOpen, FaFileLines
+  FaShieldHalved, FaCoins, FaBookOpen, FaFileLines, FaAward
 } from 'react-icons/fa6';
 import { FaFilePdf } from 'react-icons/fa';
 import resumeData from '../../data/resume.json';
+import resumePdf from '../../assets/Resume_Security_engineer.pdf';
 
 const fadeInUp = (i) => ({
   hidden: { opacity: 0, x: -25, scale: 0.95 },
@@ -36,38 +37,36 @@ const sectionAccents = {
 
 const SectionHeader = ({ accent, label }) => (
   <div className="flex items-center gap-4 mb-8">
-    <div className={`p-3 ${accent.bg} rounded-2xl ${accent.text} text-2xl border ${accent.border} ${accent.glow}`}>
+    <div className={`p-2.5 rounded-xl border border-white/10 bg-white/5 ${accent.text} text-xl`}>
       {accent.icon}
     </div>
     <div>
-      <h3 className="text-xl font-black text-white tracking-tight uppercase">{label}</h3>
-      <div className="w-12 h-[2px] mt-1 rounded-full" style={{ background: `linear-gradient(to right, ${accent.color}, transparent)` }} />
+      <h3 className="text-xl font-bold text-white tracking-tight uppercase">{label}</h3>
     </div>
   </div>
 );
 
 const Resume = () => (
-  <article className="glass p-8 pt-6 lg:p-12 lg:pt-8 rounded-4xl space-y-10 animate-fadeIn relative">
-    {/* Ambient glows */}
-    <div className="absolute top-0 right-0 w-[500px] h-[400px] -z-10 pointer-events-none"
-      style={{ background: 'radial-gradient(ellipse at top right, rgba(168,85,247,0.08) 0%, transparent 70%)' }} />
-    <div className="absolute bottom-40 left-0 w-[400px] h-[400px] -z-10 pointer-events-none"
-      style={{ background: 'radial-gradient(ellipse at bottom left, rgba(6,182,212,0.06) 0%, transparent 70%)' }} />
+  <article className="glass p-8 pt-6 lg:p-12 lg:pt-8 rounded-3xl space-y-10 animate-fadeIn relative">
 
     {/* ── Header ── */}
-    <header className="flex items-center gap-5">
-      <div className="p-3.5 rounded-2xl text-accent-cyan text-3xl border border-white/10 shadow-glow-blue flex-shrink-0"
-        style={{ background: 'linear-gradient(135deg, rgba(6,182,212,0.15), rgba(168,85,247,0.10))' }}>
-        <FaFilePdf />
-      </div>
-      <div>
-        <h2 className="text-4xl lg:text-5xl font-black pb-1"
-          style={{ background: 'linear-gradient(135deg, #fff 0%, #22d3ee 40%, #a855f7 70%, #ec4899 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+    <header className="flex items-center justify-between border-b border-white/10 pb-6">
+      <div className="flex items-center gap-5">
+        <div className="p-3 rounded-xl text-accent-blue text-2xl bg-white/5 border border-white/10 flex-shrink-0">
+          <FaFileLines />
+        </div>
+        <h2 className="text-3xl lg:text-4xl font-bold text-white tracking-tight">
           Resume
         </h2>
-        <div className="w-24 h-[3px] rounded-full"
-          style={{ background: 'linear-gradient(to right, #06b6d4, #6366f1, #a855f7, #ec4899)' }} />
       </div>
+      <a
+        href={resumePdf}
+        download="Rajkumar_Resume.pdf"
+        className="btn-primary flex items-center gap-2.5 text-sm"
+      >
+        <FaFilePdf size={14} />
+        <span className="hidden sm:inline">Download CV</span>
+      </a>
     </header>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 pt-2">
@@ -90,13 +89,13 @@ const Resume = () => (
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 + 0.3, type: "spring", stiffness: 200 }}
-                className={`absolute -left-[41px] top-1.5 w-4 h-4 rounded-full ${sectionAccents.education.dot} border-4 border-[#06050f] ${sectionAccents.education.glow} z-10 group-hover:scale-125 transition-transform duration-300`}
+                className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-[#000000] z-10`}
               />
-              <h4 className={`text-base font-black text-text-primary group-hover:${sectionAccents.education.text} transition-colors`}>
+              <h4 className={`text-base font-semibold text-text-primary group-hover:${sectionAccents.education.text} transition-colors`}>
                 {item.href ? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a> : item.title}
               </h4>
-              <p className={`${sectionAccents.education.text} font-black text-[10px] uppercase tracking-widest mt-1 opacity-80`}>{item.span}</p>
-              <p className="text-text-secondary font-bold mt-1 text-sm">{item.sub}</p>
+              <p className={`${sectionAccents.education.text} font-medium text-xs uppercase tracking-wider mt-1 opacity-80`}>{item.span}</p>
+              <p className="text-text-secondary font-medium mt-1 text-sm">{item.sub}</p>
             </motion.div>
           ))}
         </div>
@@ -120,16 +119,33 @@ const Resume = () => (
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 + 0.3, type: "spring", stiffness: 200 }}
-                className={`absolute -left-[41px] top-1.5 w-4 h-4 rounded-full ${sectionAccents.experience.dot} border-4 border-[#06050f] ${sectionAccents.experience.glow} z-10 group-hover:scale-125 transition-transform duration-300`}
+                className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.experience.dot} border-2 border-[#000000] z-10`}
               />
-              <h4 className={`text-base font-black text-text-primary group-hover:${sectionAccents.experience.text} transition-colors`}>
+              <h4 className={`text-base font-semibold text-text-primary group-hover:${sectionAccents.experience.text} transition-colors`}>
                 {item.href ? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a> : item.title}
               </h4>
-              <p className={`${sectionAccents.experience.text} font-black text-[10px] uppercase tracking-widest mt-1 opacity-80`}>{item.span}</p>
-              <div className="text-text-secondary font-bold mt-1">
+              <p className={`${sectionAccents.experience.text} font-medium text-xs uppercase tracking-wider mt-1 opacity-80`}>{item.span}</p>
+              <div className="text-text-secondary font-medium mt-1">
                 <p className="text-sm">{item.sub}</p>
-                <p className="text-xs text-text-muted italic mt-1 font-medium">{item.desc}</p>
+                <p className="text-xs text-text-muted mt-1">{item.desc}</p>
               </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Certificates */}
+      <section>
+        <SectionHeader accent={sectionAccents.education} label="Certificates" />
+        <div className="relative border-l-2 border-white/[0.06] pl-8 space-y-10">
+          {resumeData.certificates.map((item, i) => (
+            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
+              <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-[#000000] z-10`} />
+              <div className="flex items-center gap-3">
+                <span className={`${sectionAccents.education.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon] || <FaAward />}</span>
+                <h4 className="text-base font-semibold text-white uppercase tracking-tight transition-all">{item.title}</h4>
+              </div>
+              <p className="text-text-secondary font-medium mt-1 text-sm">{item.issuer}</p>
             </motion.div>
           ))}
         </div>
@@ -141,10 +157,10 @@ const Resume = () => (
         <div className="relative border-l-2 border-white/[0.06] pl-8 space-y-10">
           {resumeData.hobbies.map((item, i) => (
             <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
-              <div className={`absolute -left-[41px] top-1.5 w-4 h-4 rounded-full ${sectionAccents.hobbies.dot} border-4 border-[#06050f] ${sectionAccents.hobbies.glow} z-10 group-hover:scale-125 transition-transform duration-300`} />
+              <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.hobbies.dot} border-2 border-[#000000] z-10`} />
               <div className="flex items-center gap-3">
                 <span className={`${sectionAccents.hobbies.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon]}</span>
-                <h4 className="text-base font-black text-white uppercase tracking-tight group-hover:text-glow transition-all">{item.title}</h4>
+                <h4 className="text-base font-semibold text-white uppercase tracking-tight transition-all">{item.title}</h4>
               </div>
               <p className="text-text-secondary font-medium mt-1 text-sm">{item.sub}</p>
             </motion.div>
@@ -155,42 +171,34 @@ const Resume = () => (
       {/* Skills */}
       <section>
         <div className="flex items-center gap-4 mb-8">
-          <div className="p-3 rounded-2xl border border-white/10 shadow-glow-purple"
-            style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.10))' }}>
-            <div className="w-6 h-6 rounded animate-pulse"
-              style={{ background: 'linear-gradient(135deg, #06b6d4, #6366f1, #a855f7)' }} />
+          <div className="p-2.5 rounded-xl border border-white/10 bg-white/5 text-accent-purple text-xl">
+            <div className="w-5 h-5 rounded-sm bg-accent-purple" />
           </div>
           <div>
-            <h3 className="text-xl font-black text-white tracking-tight uppercase">Technical Skills</h3>
-            <div className="w-12 h-[2px] mt-1 rounded-full"
-              style={{ background: 'linear-gradient(to right, #a855f7, transparent)' }} />
+            <h3 className="text-xl font-bold text-white tracking-tight uppercase">Technical Skills</h3>
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-7">
           {resumeData.skills.map((s, i) => (
-            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-2.5 group">
+            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-2 group">
               <div className="flex justify-between items-end px-1">
-                <h5 className="font-bold text-text-primary tracking-tight flex items-center gap-3 group-hover:text-white transition-colors">
-                  <div className="w-2 h-2 rounded-full shadow-glow-blue"
-                    style={{ background: 'linear-gradient(135deg, #06b6d4, #a855f7)' }} />
+                <h5 className="font-semibold text-text-primary tracking-tight flex items-center gap-3 transition-colors">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
                   {s.label}
                 </h5>
-                <span className="font-black text-[11px] font-mono tracking-tighter group-hover:text-glow transition-all"
-                  style={{ background: 'linear-gradient(to right, #22d3ee, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <span className="font-semibold text-xs font-mono tracking-tighter text-accent-cyan">
                   {s.value}%
                 </span>
               </div>
-              <div className="h-2 bg-white/[0.05] rounded-full overflow-hidden border border-white/5 shadow-inner">
+              <div className="h-1.5 bg-white/10 rounded-full overflow-hidden border border-white/5">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${s.value}%` }}
                   transition={{ duration: 1.5, ease: 'circOut', delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className={`h-full rounded-full bg-gradient-to-r ${s.color} shadow-glow-purple/30 relative`}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent rounded-full" />
-                </motion.div>
+                  className={`h-full rounded-full bg-gradient-to-r ${s.color}`}
+                />
               </div>
             </motion.div>
           ))}

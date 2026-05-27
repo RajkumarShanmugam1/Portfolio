@@ -25,21 +25,13 @@ const Contributions = () => {
                     {filters.map(f => (
                         <li key={f.value} className="shrink-0 relative">
                             <button
-                                className={`relative px-4 py-1.5 text-[10px] font-black rounded-lg transition-all duration-300 whitespace-nowrap uppercase tracking-wider ${active === f.value
-                                    ? 'text-white'
-                                    : 'text-text-muted hover:text-white hover:bg-white/[0.07]'
+                                className={`relative px-4 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 whitespace-nowrap uppercase tracking-wider ${active === f.value
+                                    ? 'text-white bg-white/10'
+                                    : 'text-text-muted hover:text-white hover:bg-white/5'
                                     }`}
                                 onClick={() => setActive(f.value)}
                             >
                                 <span className="relative z-10">{f.label}</span>
-                                {active === f.value && (
-                                    <motion.div
-                                        layoutId="filter-pill"
-                                        className="absolute inset-0 rounded-lg bg-gradient-to-r from-accent-cyan via-accent-indigo to-accent-purple opacity-20"
-                                        initial={false}
-                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                    />
-                                )}
                             </button>
                         </li>
                     ))}
@@ -63,47 +55,26 @@ const Contributions = () => {
                             viewport={{ once: true, margin: "-50px" }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.6, delay: i * 0.05, ease: "easeOut" }}
-                            className="relative group overflow-hidden rounded-3xl border-[1.5px] border-white/[0.12] bg-white/[0.07] transition-all duration-500 hover:-translate-y-2"
-                            style={{
-                                boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)',
-                            }}
-                            onMouseEnter={e => {
-                                e.currentTarget.style.borderColor = 'transparent';
-                                e.currentTarget.style.backgroundImage = 'linear-gradient(#111, #111), linear-gradient(135deg, #06b6d4, #a855f7, #ec4899)';
-                                e.currentTarget.style.backgroundOrigin = 'border-box';
-                                e.currentTarget.style.backgroundClip = 'padding-box, border-box';
-                                e.currentTarget.style.boxShadow = '0 0 40px rgba(168,85,247,0.25)';
-                            }}
-                            onMouseLeave={e => {
-                                e.currentTarget.style.borderColor = '';
-                                e.currentTarget.style.backgroundImage = '';
-                                e.currentTarget.style.boxShadow = '';
-                            }}
+                            className="relative group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:border-white/20"
                         >
-                            {/* Top accent line */}
-                            <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30"
-                                style={{ background: 'linear-gradient(to right, #a855f7, #ec4899)' }} />
-
                             <a href={p.href} target="_blank" rel="noreferrer" className="block w-full">
                                 <div className="aspect-[4/3] overflow-hidden relative">
                                     <img src={p.img} alt={p.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#06050f] via-transparent to-transparent opacity-80" />
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
+                                    <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
 
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
-                                        <div className="w-12 h-12 flex items-center justify-center text-white rounded-full border border-white/20 scale-50 group-hover:scale-100 transition-transform duration-500"
-                                            style={{ background: 'rgba(168,85,247,0.2)', backdropFilter: 'blur(12px)', boxShadow: '0 0 25px rgba(168,85,247,0.4)' }}>
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
+                                        <div className="w-12 h-12 flex items-center justify-center text-white bg-accent-blue rounded-full scale-50 group-hover:scale-100 transition-transform duration-300 shadow-lg">
                                             <FaEye size={20} />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="p-5 space-y-2 relative z-10">
-                                    <p className="text-[10px] font-black uppercase tracking-[0.2em] border border-white/10 px-3 py-1 rounded-full inline-block"
-                                        style={{ color: '#c084fc', background: 'rgba(168,85,247,0.12)' }}>
+                                    <p className="text-[10px] font-semibold uppercase tracking-wider border border-white/10 px-2 py-1 rounded text-text-secondary bg-white/5 inline-block">
                                         {p.sub}
                                     </p>
-                                    <h3 className="text-base font-black text-white leading-tight group-hover:text-glow transition-all line-clamp-1">{p.title}</h3>
+                                    <h3 className="text-base font-semibold text-white leading-tight line-clamp-1">{p.title}</h3>
                                 </div>
                             </a>
                         </motion.li>

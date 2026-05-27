@@ -3,7 +3,7 @@
         {
             "title": "Mepco Schlenk Engineering College, Sivakasi, Tamilnadu",
             "sub": "B.E. Computer Science",
-            "span": "2019 — 2023",
+            "span": "Sept 2019 — May 2023",
             "href": "https://www.mepcoeng.ac.in/"
         },
         {
@@ -22,62 +22,84 @@
     "experience": [
         {
             "title": "Software Engineer",
-            "sub": "PALC Networks",
-            "span": "July,2025 — Present",
-            "desc": "Role: Backend Engineer (Network Management System)",
+            "sub": "PalC Networks Pvt. Ltd",
+            "span": "Aug 2025 — Present",
+            "desc": "Engineered real-time network security monitoring solution (Spring Boot, React). Contributed to SONiC BGP CLI enhancements.",
             "href": "https://palcnetworks.com/"
         },
         {
             "title": "Project Engineer",
-            "sub": "PALC Networks",
-            "span": "June,2023 — July,2025",
-            "desc": "Role: Network Security and IAM",
+            "sub": "PalC Networks Pvt. Ltd",
+            "span": "June 2023 — July 2025",
+            "desc": "Hardened email security (SPF, DKIM, DMARC), conducted vulnerability assessments, customized Wazuh SIEM.",
             "href": "https://palcnetworks.com/"
         },
         {
-            "title": "Software Trainee",
-            "sub": "PALC Networks",
-            "span": "Feb,2023 — June,2023",
-            "desc": "Role: Intern",
+            "title": "Software Intern",
+            "sub": "PalC Networks Pvt. Ltd",
+            "span": "Feb 2023 — June 2023",
+            "desc": "Implemented IAM solutions using OKTA, Auth0, OAuth. Configured MFA, SSO, and PAM.",
             "href": "https://palcnetworks.com/"
+        }
+    ],
+    "certificates": [
+        {
+            "title": "Certified WIFI Pentesting 101",
+            "issuer": "eLearnSecurity / TCM",
+            "icon": "shield"
+        },
+        {
+            "title": "Certified API Pentesting & Bug Bounty 101",
+            "issuer": "eLearnSecurity / TCM",
+            "icon": "shield"
+        },
+        {
+            "title": "Network Analysis",
+            "issuer": "Security Platform",
+            "icon": "book"
+        },
+        {
+            "title": "Mastercard - Cybersecurity Job Simulation",
+            "issuer": "Forage",
+            "icon": "briefcase"
         }
     ],
     "hobbies": [
         {
-            "title": "Cybersecurity Research",
+            "title": "Cyber security Research",
             "sub": "Ensure cybersecurity through awareness and research",
             "icon": "shield"
         },
         {
             "title": "Numismatics",
-            "sub": "Collecting the currency, coins and stamps",
+            "sub": "Collecting currencies & coins",
             "icon": "coins"
         },
         {
-            "title": "Bibliophile",
-            "sub": "Collect and read the books",
+            "title": "Book Collection",
+            "sub": "Collect and read books",
             "icon": "book"
         }
     ],
     "skills": [
         {
             "label": "Computer Networks",
-            "value": 60,
+            "value": 80,
             "color": "from-accent-blue to-accent-cyan"
         },
         {
             "label": "Web Security",
-            "value": 40,
+            "value": 85,
             "color": "from-accent-cyan to-accent-purple"
         },
         {
             "label": "IAM",
-            "value": 50,
+            "value": 75,
             "color": "from-accent-purple to-accent-blue"
         },
         {
             "label": "OS - Linux & Windows",
-            "value": 50,
+            "value": 80,
             "color": "from-accent-blue to-accent-cyan"
         }
     ]

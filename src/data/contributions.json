@@ -1,140 +1,140 @@
 [
     {
         "cat": "hall of fame",
-        "href": "https://hackerone.com/nasa",
+        "href": "https://bugcrowd.com/engagements/nasa-vdp/hall_of_fames",
         "img": "/content/images/HOF/Nasa.jpeg",
         "title": "NASA",
         "sub": "HackerOne"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.who.int/",
+        "href": "https://www.who.int/about/cybersecurity/vulnerability-hall-of-fame/ethical-hacker-list",
         "img": "/content/images/HOF/WHO.jpeg",
         "title": "WHO",
         "sub": "United Nations"
     },
     {
         "cat": "acknowledgement",
-        "href": "https://www.nciipc.gov.in/",
+        "href": "https://www.nciipc.gov.in/documents/NCIIPC_Newsletter_Oct24.pdf#page=17",
         "img": "/content/images/Acknowledgement/NCIIPC_Top15.jpg",
         "title": "INDIA NCIIPC",
         "sub": "Top 15 Contributor"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.bbc.co.uk/",
+        "href": "https://www.bbc.com/backstage/security-disclosure-policy/acknowledgements",
         "img": "/content/images/HOF/BBC.jpg",
         "title": "BBC",
         "sub": "VDP Program"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.gov.sg/",
+        "href": "https://drive.google.com/file/d/1qN1uaHO1H48ymlzzcIdNNsnDVS9tVe7c/view?usp=sharing",
         "img": "/content/images/HOF/Govt_sg.png",
         "title": "Singapore Govt",
         "sub": "Cyber Security Agency"
     },
     {
         "cat": "hall of fame",
-        "href": "https://yeswehack.com/programs/swiss-post",
+        "href": "https://yeswehack.com/programs/swiss-post#program-activity",
         "img": "/content/images/HOF/SwissPost.png",
         "title": "Swiss Post",
         "sub": "Yes We Hack"
     },
     {
         "cat": "hall of fame",
-        "href": "https://scot.ac.il/",
+        "href": "https://www.scoleiden.nl/responsible-disclosure/",
         "img": "/content/images/HOF/SCOL.jfif",
         "title": "SCOL (Israel)",
         "sub": "Educational Program"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.iom.int/",
+        "href": "https://www.iom.int/report-cybersecurity-issue",
         "img": "/content/images/HOF/IOM.jpeg",
         "title": "IOM",
         "sub": "UN Migration"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.usda.gov/",
+        "href": "https://bugcrowd.com/engagements/usda-vdp/hall_of_fames",
         "img": "/content/images/HOF/USDA.jpeg",
         "title": "USDA",
         "sub": "U.S. Federal"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.energy.gov/",
+        "href": "https://doe.responsibledisclosure.com/hc/en-us/articles/360052066474-Acknowledgments",
         "img": "/content/images/HOF/DOE.jfif",
         "title": "U.S. Dept. of Energy",
         "sub": "U.S. Federal"
     },
     {
         "cat": "hall of fame",
-        "href": "https://gea.de/",
+        "href": "https://www.gea.com/en/company/about-us/information-security/products/responsible-disclosure-of-security-issues/hall-of-fame/",
         "img": "/content/images/HOF/GEA.jfif",
         "title": "GEA Group",
         "sub": "German Engineering"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.unesco.org/",
+        "href": "https://www.unesco.org/en/vulnerability-disclosure",
         "img": "/content/images/HOF/UNESCO.jfif",
         "title": "UNESCO",
         "sub": "United Nations"
     },
     {
         "cat": "acknowledgement",
-        "href": "https://media.geeksforgeeks.org/",
+        "href": "https://media.geeksforgeeks.org/certificates/1731908151/c4050f31351385023d4125f2c25bb342.pdf",
         "img": "/content/images/Acknowledgement/GFG.png",
         "title": "GeeksforGeeks",
         "sub": "Cyber Warrior"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.sheffield.ac.uk/",
+        "href": "https://www.sheffield.ac.uk/it-services/security-vulnerability-disclosure",
         "img": "/content/images/HOF/Sheffield.png",
         "title": "U. of Sheffield",
         "sub": "Higher Education"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.uu.se/",
+        "href": "https://www.uu.nl/en/organisation/information-and-technology-services-its/hall-of-fame-responsible-disclosure",
         "img": "/content/images/HOF/UU.jfif",
         "title": "Uppsala Univ.",
         "sub": "Higher Education"
     },
     {
         "cat": "hall of fame",
-        "href": "https://www.utu.fi/",
+        "href": "https://security.utu.fi/acknowledgements.html",
         "img": "/content/images/HOF/Utu.fi.jpeg",
         "title": "Utu.fi",
         "sub": "Educational Research"
     },
     {
         "cat": "hall of fame",
-        "href": "https://cert.europa.eu/",
+        "href": "https://www.cert.europa.eu/hall-of-fame",
         "img": "/content/images/HOF/cert-eu.jpg",
         "title": "CERT-EU",
         "sub": "European Union"
     },
     {
         "cat": "acknowledgement",
-        "href": "#",
+        "href": "/content/images/Acknowledgement/Switch_bot.png",
         "img": "/content/images/Acknowledgement/Switch_bot.png",
         "title": "SwitchBot",
         "sub": "IoT Security"
     },
     {
         "cat": "acknowledgement",
-        "href": "#",
+        "href": "/content/images/Acknowledgement/NCIIPC1.png",
         "img": "/content/images/Acknowledgement/NCIIPC1.png",
         "title": "NCIIPC India (1)",
         "sub": "Acknowledgement"
     },
     {
         "cat": "acknowledgement",
-        "href": "#",
+        "href": "/content/images/Acknowledgement/NCIIPC2.png",
         "img": "/content/images/Acknowledgement/NCIIPC2.png",
         "title": "NCIIPC India (2)",
         "sub": "Acknowledgement"
