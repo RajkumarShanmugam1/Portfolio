@@ -11,8 +11,8 @@ const innerCard = {
 const Blog = () => (
   <article className="glass p-8 pt-6 lg:p-12 lg:pt-8 rounded-3xl space-y-10 animate-fadeIn relative">
     <header className="flex items-center gap-5 border-b pb-6" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
-      <div className="p-3 rounded-xl text-accent-blue text-2xl flex-shrink-0"
-        style={{ background: 'rgba(0,122,255,0.15)' }}>
+      <div className="p-3 rounded-xl text-white text-2xl flex-shrink-0"
+        style={{ background: 'linear-gradient(145deg,#32d74b,#1a9e30)', boxShadow: '0 3px 10px rgba(50,215,75,0.4), 0 1px 0 rgba(255,255,255,0.2) inset' }}>
         <FaRss />
       </div>
       <h2 className="text-3xl lg:text-4xl font-medium text-text-primary tracking-tight">Blog</h2>

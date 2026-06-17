@@ -22,7 +22,8 @@ const Portfolio = () => {
             {/* ── Header + Filters (same row on desktop to save vertical space) ── */}
             <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 border-b border-black/[0.06] pb-6">
                 <div className="flex items-center gap-5">
-                    <div className="p-3 rounded-xl text-accent-blue text-2xl flex-shrink-0" style={{ background: 'rgba(0,122,255,0.1)' }}>
+                    <div className="p-3 rounded-xl text-white text-2xl flex-shrink-0"
+                        style={{ background: 'linear-gradient(145deg,#bf5af2,#7d2fe6)', boxShadow: '0 3px 10px rgba(175,82,222,0.4), 0 1px 0 rgba(255,255,255,0.2) inset' }}>
                         <FaBriefcase />
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-medium text-text-primary tracking-tight">

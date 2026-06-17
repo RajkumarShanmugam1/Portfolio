@@ -32,14 +32,15 @@ const hobbyIcons = {
    hoverClass is a full literal class string (not built via interpolation)
    so Tailwind's static scanner can actually find and generate it. */
 const sectionAccents = {
-  education: { dot: 'bg-accent-cyan', text: 'text-accent-cyan', hoverClass: 'group-hover:text-accent-cyan', icon: <FaGraduationCap />, bg: 'rgba(8,145,178,0.12)' },
-  experience: { dot: 'bg-accent-purple', text: 'text-accent-purple', hoverClass: 'group-hover:text-accent-purple', icon: <FaBriefcase />, bg: 'rgba(124,58,237,0.12)' },
-  hobbies: { dot: 'bg-accent-pink', text: 'text-accent-pink', hoverClass: 'group-hover:text-accent-pink', icon: <FaLeaf />, bg: 'rgba(225,29,72,0.12)' },
+  education: { dot: 'bg-accent-cyan', text: 'text-accent-cyan', hoverClass: 'group-hover:text-accent-cyan', icon: <FaGraduationCap />, bg: 'linear-gradient(145deg,#5ac8fa,#007aab)', shadow: 'rgba(90,200,250,0.4)' },
+  experience: { dot: 'bg-accent-purple', text: 'text-accent-purple', hoverClass: 'group-hover:text-accent-purple', icon: <FaBriefcase />, bg: 'linear-gradient(145deg,#bf5af2,#7d2fe6)', shadow: 'rgba(175,82,222,0.4)' },
+  hobbies: { dot: 'bg-accent-pink', text: 'text-accent-pink', hoverClass: 'group-hover:text-accent-pink', icon: <FaLeaf />, bg: 'linear-gradient(145deg,#ff6b8a,#e01040)', shadow: 'rgba(255,45,85,0.4)' },
 };
 
 const SectionHeader = ({ accent, label }) => (
   <div className="flex items-center gap-4 mb-8">
-    <div className={`p-2.5 rounded-xl ${accent.text} text-xl`} style={{ background: accent.bg }}>
+    <div className="p-2.5 rounded-xl text-white text-xl flex-shrink-0"
+      style={{ background: accent.bg, boxShadow: '0 3px 10px ' + accent.shadow + ', 0 1px 0 rgba(255,255,255,0.2) inset' }}>
       {accent.icon}
     </div>
     <div>
@@ -54,7 +55,8 @@ const Resume = () => (
     {/* ── Header ── */}
     <header className="flex items-center justify-between border-b pb-6" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
       <div className="flex items-center gap-5">
-        <div className="p-3 rounded-xl text-accent-blue text-2xl flex-shrink-0" style={{ background: 'rgba(0,122,255,0.1)' }}>
+        <div className="p-3 rounded-xl text-white text-2xl flex-shrink-0"
+          style={{ background: 'linear-gradient(145deg,#3a8eff,#0055d4)', boxShadow: '0 3px 10px rgba(0,122,255,0.4), 0 1px 0 rgba(255,255,255,0.2) inset' }}>
           <FaFileLines />
         </div>
         <h2 className="text-3xl lg:text-4xl font-medium text-text-primary tracking-tight">
@@ -180,8 +182,9 @@ const Resume = () => (
       {/* Skills — full width so it doesn't sit alone beside an empty column */}
       <section className="md:col-span-2">
         <div className="flex items-center gap-4 mb-8">
-          <div className="p-2.5 rounded-xl text-accent-purple text-xl" style={{ background: 'rgba(175,82,222,0.12)' }}>
-            <div className="w-5 h-5 rounded-sm bg-accent-purple" />
+          <div className="p-2.5 rounded-xl text-white text-xl flex-shrink-0"
+            style={{ background: 'linear-gradient(145deg,#bf5af2,#7d2fe6)', boxShadow: '0 3px 10px rgba(175,82,222,0.4), 0 1px 0 rgba(255,255,255,0.2) inset' }}>
+            <div className="w-5 h-5 rounded-sm bg-white/80" />
           </div>
           <div>
             <h3 className="text-base font-medium text-text-primary tracking-tight uppercase">Technical Skills</h3>
