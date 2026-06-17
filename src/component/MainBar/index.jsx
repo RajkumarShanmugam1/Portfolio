@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaUser, FaFileLines, FaBriefcase, FaTrophy, FaRss
@@ -39,6 +39,16 @@ function MainBar() {
   const [activeId, setActiveId] = useState(tabs[0].id);
   const ActiveComponent = tabs.find(t => t.id === activeId)?.Component ?? About;
   const tabRefs = React.useRef([]);
+
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' && window.innerWidth < 1024
+  );
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1023px)');
+    const handler = e => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const handleKeyDown = (e, index) => {
     let next = index;
@@ -125,16 +135,27 @@ function MainBar() {
         </div>
       </nav>
 
-      {/* ── Tab content — Genie Effect from tab bar (top on desktop) ── */}
+      {/* ── Tab content — Genie Effect (desktop) / fade-slide (mobile) ── */}
       <div className="w-full relative z-0" style={{ overflow: 'clip' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={activeId}
-            style={{ transformOrigin: 'top center', willChange: 'transform, opacity' }}
-            initial={{ opacity: 0, scaleY: 0.08, scaleX: 0.78, y: -16 }}
-            animate={{ opacity: 1, scaleY: 1,    scaleX: 1,    y: 0   }}
-            exit={{    opacity: 0, scaleY: 0.08, scaleX: 0.78, y: -16 }}
-            transition={{ duration: 0.24, ease: [0.25, 1, 0.35, 1] }}
+            style={{
+              transformOrigin: isMobile ? 'bottom center' : 'top center',
+              willChange: 'transform, opacity',
+            }}
+            initial={isMobile
+              ? { opacity: 0, y: 18 }
+              : { opacity: 0, scaleY: 0.08, scaleX: 0.78, y: -16 }}
+            animate={isMobile
+              ? { opacity: 1, y: 0 }
+              : { opacity: 1, scaleY: 1, scaleX: 1, y: 0 }}
+            exit={isMobile
+              ? { opacity: 0, y: 12 }
+              : { opacity: 0, scaleY: 0.08, scaleX: 0.78, y: -16 }}
+            transition={isMobile
+              ? { duration: 0.2, ease: [0.25, 1, 0.35, 1] }
+              : { duration: 0.24, ease: [0.25, 1, 0.35, 1] }}
           >
             <TabErrorBoundary tabId={activeId}>
               <Suspense fallback={
