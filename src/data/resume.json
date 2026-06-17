@@ -83,24 +83,34 @@
     ],
     "skills": [
         {
-            "label": "Computer Networks",
-            "value": 80,
+            "label": "Web Application Penetration Testing",
+            "value": 85,
             "color": "from-accent-blue to-accent-cyan"
         },
         {
-            "label": "Web Security",
-            "value": 85,
+            "label": "Network Vulnerability Assessment",
+            "value": 80,
             "color": "from-accent-cyan to-accent-purple"
         },
         {
-            "label": "IAM",
-            "value": 75,
+            "label": "Bug Bounty & Vulnerability Research",
+            "value": 88,
             "color": "from-accent-purple to-accent-blue"
         },
         {
-            "label": "OS - Linux & Windows",
-            "value": 80,
+            "label": "Security Operations (SIEM / IAM)",
+            "value": 78,
             "color": "from-accent-blue to-accent-cyan"
+        },
+        {
+            "label": "Email Security (SPF / DKIM / DMARC)",
+            "value": 82,
+            "color": "from-accent-cyan to-accent-purple"
+        },
+        {
+            "label": "Linux & Scripting (Bash / Python)",
+            "value": 80,
+            "color": "from-accent-purple to-accent-blue"
         }
     ]
 }
