@@ -1,8 +1,7 @@
 import React, { useState, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  FaCircleInfo,
-  FaFileLines, FaRss, FaBriefcase, FaAward
+  FaUser, FaFileLines, FaBriefcase, FaTrophy, FaRss
 } from 'react-icons/fa6';
 import About from './About';
 
@@ -27,12 +26,13 @@ class TabErrorBoundary extends React.Component {
   }
 }
 
+// macOS-style app icon colours per tab
 const tabs = [
-  { name: 'About',     icon: <FaCircleInfo />, id: 'about',     Component: About },
-  { name: 'Resume',    icon: <FaFileLines />,  id: 'resume',    Component: Resume },
-  { name: 'Portfolio', icon: <FaBriefcase />,  id: 'portfolio', Component: Portfolio },
-  { name: 'Awards',    icon: <FaAward />,      id: 'awards',    Component: Achievements },
-  { name: 'Blog',      icon: <FaRss />,        id: 'blog',      Component: Blog },
+  { name: 'Profile',   icon: <FaUser />,      bg: 'linear-gradient(145deg,#3a8eff,#0055d4)', id: 'about',     Component: About },
+  { name: 'Resume',    icon: <FaFileLines />, bg: 'linear-gradient(145deg,#ff9f44,#e06000)', id: 'resume',    Component: Resume },
+  { name: 'Portfolio', icon: <FaBriefcase />, bg: 'linear-gradient(145deg,#bf5af2,#7d2fe6)', id: 'portfolio', Component: Portfolio },
+  { name: 'Awards',    icon: <FaTrophy />,    bg: 'linear-gradient(145deg,#ffd60a,#c89300)', id: 'awards',    Component: Achievements },
+  { name: 'Blog',      icon: <FaRss />,       bg: 'linear-gradient(145deg,#32d74b,#1a9e30)', id: 'blog',      Component: Blog },
 ];
 
 function MainBar() {
@@ -95,8 +95,19 @@ function MainBar() {
               onClick={() => setActiveId(tab.id)}
               onKeyDown={e => handleKeyDown(e, index)}
             >
-              <span className="relative z-10 inline-block">{tab.icon}</span>
-              <span className="relative z-10">{tab.name}</span>
+              {/* macOS rounded-square app icon */}
+              <span
+                className="relative z-10 flex-shrink-0 flex items-center justify-center text-white rounded-[7px] lg:rounded-[9px]"
+                style={{
+                  width: 28, height: 28,
+                  background: tab.bg,
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.22), 0 1px 0 rgba(255,255,255,0.25) inset',
+                  fontSize: 13,
+                }}
+              >
+                {tab.icon}
+              </span>
+              <span className="relative z-10 text-[10px] lg:text-[13px]">{tab.name}</span>
               {activeId === tab.id && (
                 <motion.div
                   layoutId="active-segment"
