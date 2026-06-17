@@ -70,7 +70,7 @@ const Sidebar = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[10px] font-medium text-text-muted uppercase tracking-wider mb-0.5">{item.title}</p>
-                  <p className="text-text-primary text-xs font-medium truncate">{item.value}</p>
+                  <p className="text-text-primary text-xs font-medium break-all leading-snug">{item.value}</p>
                 </div>
               </li>
             ))}

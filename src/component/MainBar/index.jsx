@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   FaCircleInfo,
   FaFileLines, FaRss, FaBriefcase, FaAward
@@ -78,15 +78,17 @@ function MainBar() {
             boxShadow: '0 8px 32px rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.9) inset',
           }}>
           {tabs.map((tab, index) => (
-            <button
+            <motion.button
               key={tab.id}
               ref={el => tabRefs.current[index] = el}
               role="tab"
               aria-selected={activeId === tab.id}
               tabIndex={activeId === tab.id ? 0 : -1}
-              className={`relative flex-1 lg:flex-none px-2 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-sm font-medium transition-all duration-200 rounded-xl whitespace-nowrap flex flex-col lg:flex-row items-center justify-center gap-0.5 lg:gap-1.5
-                ${activeId === tab.id ? '' : 'hover:opacity-80'}`}
-              style={{ color: activeId === tab.id ? '#1d1d1f' : '#6e6e73' }}
+              className={`relative flex-1 lg:flex-none px-2 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-sm font-medium rounded-xl whitespace-nowrap flex flex-col lg:flex-row items-center justify-center gap-0.5 lg:gap-1.5
+                ${activeId === tab.id ? '' : 'hover:opacity-75'}`}
+              style={{ color: activeId === tab.id ? '#4f46e5' : '#6e6e73' }}
+              whileTap={{ scale: 0.88, opacity: 0.7 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
               onClick={() => setActiveId(tab.id)}
               onKeyDown={e => handleKeyDown(e, index)}
             >
@@ -97,13 +99,14 @@ function MainBar() {
                   layoutId="active-segment"
                   className="absolute inset-0 rounded-xl pointer-events-none"
                   style={{
-                    background: 'rgba(255,255,255,0.85)',
-                    boxShadow: '0 2px 12px rgba(0,0,0,0.1), 0 1px 0 rgba(255,255,255,0.9) inset',
+                    background: 'rgba(99,102,241,0.13)',
+                    border: '1px solid rgba(99,102,241,0.25)',
+                    boxShadow: '0 2px 12px rgba(99,102,241,0.15), 0 1px 0 rgba(255,255,255,0.8) inset',
                   }}
                   transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
                 />
               )}
-            </button>
+            </motion.button>
           ))}
         </div>
       </nav>

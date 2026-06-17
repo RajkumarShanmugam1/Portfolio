@@ -36,10 +36,12 @@ const Portfolio = () => {
                         <li key={f.value} className="shrink-0 relative">
                             <button
                                 className={`relative px-4 py-1.5 text-xs font-medium rounded-lg transition-all duration-300 whitespace-nowrap uppercase tracking-wider ${active === f.value
-                                    ? 'text-text-primary'
-                                    : 'text-text-muted hover:text-text-primary'
+                                    ? ''
+                                    : 'text-text-muted hover:text-[#4f46e5]'
                                     }`}
-                        style={active === f.value ? { background: 'rgba(255,255,255,0.85)', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' } : {}}
+                        style={active === f.value
+                            ? { color: '#4f46e5', background: 'rgba(99,102,241,0.13)', border: '1px solid rgba(99,102,241,0.25)', boxShadow: '0 2px 10px rgba(99,102,241,0.15)' }
+                            : {}}
                                 onClick={() => setActive(f.value)}
                             >
                                 <span className="relative z-10">{f.label}</span>
