@@ -77,12 +77,20 @@ const About = () => (
             target="_blank"
             rel="noreferrer"
             variants={fadeInUp} initial="hidden" animate="visible" custom={i * 0.05 + 4}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium group transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+            className="flex items-center gap-2.5 px-3 py-2 rounded-xl font-medium group transition-all duration-200 hover:-translate-y-0.5"
             style={innerCard}
             whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}>
-            <span className={`text-xl ${s.color} group-hover:scale-110 transition-transform`}>{iconMap[s.iconType]}</span>
-            <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">{s.label}</span>
+            whileTap={{ scale: 0.95 }}>
+            <span
+              className="flex-shrink-0 flex items-center justify-center text-white rounded-[8px] text-sm group-hover:scale-110 transition-transform"
+              style={{
+                width: 28, height: 28,
+                background: s.bg,
+                boxShadow: '0 2px 6px ' + s.shadow + ', 0 1px 0 rgba(255,255,255,0.2) inset',
+              }}>
+              {iconMap[s.iconType]}
+            </span>
+            <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">{s.label}</span>
           </motion.a>
         ))}
       </div>

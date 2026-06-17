@@ -4,99 +4,23 @@
         "Recognized by 20+ global organizations including NASA, WHO, UNESCO, BBC, Singapore CSA, USDA, U.S. DoE, CERT-EU, and India's NCIIPC (Top 15 Contributor) for responsible vulnerability disclosure. Certified in WiFi Pentesting and API Pentesting & Bug Bounty. Active bug bounty hunter on YesWeHack with a focus on web application and API vulnerabilities."
     ],
     "services": [
-        {
-            "title": "Web Application VAPT",
-            "text": "Manual and automated testing of web apps against the OWASP Top 10 — auth flaws, injection, business-logic and access-control issues.",
-            "iconType": "FaShieldAlt"
-        },
-        {
-            "title": "Network & Infrastructure VAPT",
-            "text": "Vulnerability assessments and penetration testing across internal and external network infrastructure, with remediation guidance.",
-            "iconType": "FaNetworkWired"
-        },
-        {
-            "title": "Bug Bounty & Vulnerability Research",
-            "text": "19+ Hall of Fame / acknowledgement recognitions from NASA, WHO, UNESCO, BBC, USDA, U.S. DoE, CERT-EU and others for responsible disclosure.",
-            "iconType": "FaBug"
-        },
-        {
-            "title": "Security Operations & Hardening",
-            "text": "SIEM monitoring (Wazuh), email security hardening (SPF/DKIM/DMARC), and IAM configuration (OKTA, Auth0, SSO, MFA).",
-            "iconType": "FaTerminal"
-        }
+        { "title": "Web Application VAPT", "text": "Manual and automated testing of web apps against the OWASP Top 10 — auth flaws, injection, business-logic and access-control issues.", "iconType": "FaShieldAlt" },
+        { "title": "Network & Infrastructure VAPT", "text": "Vulnerability assessments and penetration testing across internal and external network infrastructure, with remediation guidance.", "iconType": "FaNetworkWired" },
+        { "title": "Bug Bounty & Vulnerability Research", "text": "19+ Hall of Fame / acknowledgement recognitions from NASA, WHO, UNESCO, BBC, USDA, U.S. DoE, CERT-EU and others for responsible disclosure.", "iconType": "FaBug" },
+        { "title": "Security Operations & Hardening", "text": "SIEM monitoring (Wazuh), email security hardening (SPF/DKIM/DMARC), and IAM configuration (OKTA, Auth0, SSO, MFA).", "iconType": "FaTerminal" }
     ],
     "techStack": [
-        {
-            "label": "VAPT",
-            "iconType": "FaShieldAlt",
-            "color": "text-accent-cyan",
-            "href": "https://owasp.org/www-project-web-security-testing-guide/"
-        },
-        {
-            "label": "OWASP Top 10",
-            "iconType": "FaShieldAlt",
-            "color": "text-accent-blue",
-            "href": "https://owasp.org/www-project-top-ten/"
-        },
-        {
-            "label": "Burp Suite",
-            "iconType": "FaBug",
-            "color": "text-orange-500",
-            "href": "https://portswigger.net/burp"
-        },
-        {
-            "label": "Nmap",
-            "iconType": "FaNetworkWired",
-            "color": "text-accent-purple",
-            "href": "https://nmap.org"
-        },
-        {
-            "label": "Wireshark",
-            "iconType": "SiWireshark",
-            "color": "text-blue-400",
-            "href": "https://www.wireshark.org"
-        },
-        {
-            "label": "Wazuh SIEM",
-            "iconType": "FaShieldAlt",
-            "color": "text-green-500",
-            "href": "https://wazuh.com"
-        },
-        {
-            "label": "Linux",
-            "iconType": "FaLinux",
-            "color": "text-text-primary",
-            "href": "https://www.kernel.org"
-        },
-        {
-            "label": "Python",
-            "iconType": "FaPython",
-            "color": "text-yellow-400",
-            "href": "https://www.python.org"
-        },
-        {
-            "label": "Metasploit",
-            "iconType": "FaTerminal",
-            "color": "text-red-500",
-            "href": "https://www.metasploit.com"
-        },
-        {
-            "label": "Nessus",
-            "iconType": "FaShieldAlt",
-            "color": "text-accent-purple",
-            "href": "https://www.tenable.com/products/nessus"
-        },
-        {
-            "label": "SQLMap",
-            "iconType": "FaBug",
-            "color": "text-yellow-600",
-            "href": "https://sqlmap.org"
-        },
-        {
-            "label": "Git",
-            "iconType": "FaGitAlt",
-            "color": "text-orange-500",
-            "href": "https://git-scm.com"
-        }
+        { "label": "VAPT",        "iconType": "FaShieldAlt",    "bg": "linear-gradient(145deg,#3a8eff,#0055d4)", "shadow": "rgba(0,122,255,0.35)",    "href": "https://owasp.org/www-project-web-security-testing-guide/" },
+        { "label": "OWASP Top 10","iconType": "FaShieldAlt",    "bg": "linear-gradient(145deg,#ff6b8a,#c0132e)", "shadow": "rgba(225,29,72,0.35)",     "href": "https://owasp.org/www-project-top-ten/" },
+        { "label": "Burp Suite",  "iconType": "FaBug",          "bg": "linear-gradient(145deg,#ff9f44,#e06000)", "shadow": "rgba(255,149,0,0.35)",     "href": "https://portswigger.net/burp" },
+        { "label": "Nmap",        "iconType": "FaNetworkWired", "bg": "linear-gradient(145deg,#bf5af2,#7d2fe6)", "shadow": "rgba(175,82,222,0.35)",    "href": "https://nmap.org" },
+        { "label": "Wireshark",   "iconType": "SiWireshark",    "bg": "linear-gradient(145deg,#5ac8fa,#007aab)", "shadow": "rgba(90,200,250,0.35)",    "href": "https://www.wireshark.org" },
+        { "label": "Wazuh SIEM",  "iconType": "FaShieldAlt",    "bg": "linear-gradient(145deg,#32d74b,#1a9e30)", "shadow": "rgba(50,215,75,0.35)",     "href": "https://wazuh.com" },
+        { "label": "Linux",       "iconType": "FaLinux",         "bg": "linear-gradient(145deg,#636363,#2a2a2a)", "shadow": "rgba(0,0,0,0.3)",          "href": "https://www.kernel.org" },
+        { "label": "Python",      "iconType": "FaPython",        "bg": "linear-gradient(145deg,#ffd60a,#c89300)", "shadow": "rgba(255,214,10,0.4)",     "href": "https://www.python.org" },
+        { "label": "Metasploit",  "iconType": "FaTerminal",      "bg": "linear-gradient(145deg,#ff453a,#c0150b)", "shadow": "rgba(255,69,58,0.35)",     "href": "https://www.metasploit.com" },
+        { "label": "Nessus",      "iconType": "FaShieldAlt",    "bg": "linear-gradient(145deg,#30b0c7,#006fa6)", "shadow": "rgba(0,122,194,0.35)",     "href": "https://www.tenable.com/products/nessus" },
+        { "label": "SQLMap",      "iconType": "FaBug",          "bg": "linear-gradient(145deg,#ff9f0a,#b36200)", "shadow": "rgba(255,159,10,0.35)",    "href": "https://sqlmap.org" },
+        { "label": "Git",         "iconType": "FaGitAlt",        "bg": "linear-gradient(145deg,#ff6b35,#d42b00)", "shadow": "rgba(244,80,0,0.35)",      "href": "https://git-scm.com" }
     ]
 }
