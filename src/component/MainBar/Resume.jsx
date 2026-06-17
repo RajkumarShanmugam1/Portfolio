@@ -78,13 +78,14 @@ const Resume = () => (
       <section>
         <SectionHeader accent={sectionAccents.education} label="Education" />
         <div className="relative pl-8 space-y-10">
-          {/* Animated line */}
+          {/* Animated line — scaleY from top, avoids % height issue on mobile */}
           <motion.div
-            initial={{ height: 0 }}
-            whileInView={{ height: '100%' }}
-            viewport={{ once: true, margin: "-100px" }}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute left-0 top-2 w-[2px] bg-black/[0.08]"
+            className="absolute left-0 top-2 bottom-0 w-[2px] bg-black/[0.12]"
+            style={{ transformOrigin: 'top' }}
           />
           {resumeData.education.map((item, i) => (
             <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="relative group cursor-default">
@@ -108,13 +109,13 @@ const Resume = () => (
       <section>
         <SectionHeader accent={sectionAccents.experience} label="Experience" />
         <div className="relative pl-8 space-y-10">
-          {/* Animated line */}
           <motion.div
-            initial={{ height: 0 }}
-            whileInView={{ height: '100%' }}
-            viewport={{ once: true, margin: "-100px" }}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute left-0 top-2 w-[2px] bg-black/[0.08]"
+            className="absolute left-0 top-2 bottom-0 w-[2px] bg-black/[0.12]"
+            style={{ transformOrigin: 'top' }}
           />
           {resumeData.experience.map((item, i) => (
             <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="relative group cursor-default">
