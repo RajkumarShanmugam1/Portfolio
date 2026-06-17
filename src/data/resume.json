@@ -2,12 +2,12 @@
     "education": [
         {
             "title": "Mepco Schlenk Engineering College, Sivakasi, Tamilnadu",
-            "sub": "B.E. Computer Science",
+            "sub": "B.E. Computer Science — CGPA: 7.6 / 10",
             "span": "Sept 2019 — May 2023",
             "href": "https://www.mepcoeng.ac.in/"
         },
         {
-            "title": "Government Higher Secondry School, (O.Siruvayal), Tamilnadu",
+            "title": "Government Higher Secondary School, (O.Siruvayal), Tamilnadu",
             "sub": "HSC (11th and 12th Grade)",
             "span": "2017 — 2019",
             "href": "https://nammaschoolpavilion.tnschools.gov.in/pavillionnewviewapi/33230800202"
@@ -21,53 +21,57 @@
     ],
     "experience": [
         {
-            "title": "Software Engineer",
+            "title": "Software Engineer (Security Focus)",
             "sub": "PalC Networks Pvt. Ltd",
             "span": "Aug 2025 — Present",
-            "desc": "Engineered real-time network security monitoring solution (Spring Boot, React). Contributed to SONiC BGP CLI enhancements.",
+            "desc": "Engineered real-time network security monitoring solution (Java/Spring Boot + React) for continuous device health logging, anomaly detection, and threat visualization. Enhanced SONiC BGP CLI; conducted vulnerability assessments as part of infrastructure hardening.",
             "href": "https://palcnetworks.com/"
         },
         {
-            "title": "Project Engineer",
+            "title": "Project Engineer — Security",
             "sub": "PalC Networks Pvt. Ltd",
             "span": "June 2023 — July 2025",
-            "desc": "Hardened email security (SPF, DKIM, DMARC), conducted vulnerability assessments, customized Wazuh SIEM.",
+            "desc": "Conducted VA on WordPress environments using Burp Suite and manual testing (OWASP Top 10). Hardened email security via SPF, DKIM, DMARC — reducing phishing risk by 60%. Customized Wazuh SIEM with tailored decoders and detection rules for real-time BGP and configuration alerting.",
             "href": "https://palcnetworks.com/"
         },
         {
-            "title": "Software Intern",
+            "title": "Security Intern",
             "sub": "PalC Networks Pvt. Ltd",
             "span": "Feb 2023 — June 2023",
-            "desc": "Implemented IAM solutions using OKTA, Auth0, OAuth. Configured MFA, SSO, and PAM.",
+            "desc": "Implemented IAM solutions using OKTA, Auth0, and OAuth 2.0 enforcing zero-trust access controls. Deployed MFA, SSO, Federation, and PAM to strengthen authentication and identity governance.",
             "href": "https://palcnetworks.com/"
         }
     ],
     "certificates": [
         {
-            "title": "Certified WIFI Pentesting 101",
-            "issuer": "eLearnSecurity / TCM",
+            "title": "Certified WiFi Pentesting 101",
+            "issuer": "Capprico Security University",
+            "href": "#",
             "icon": "shield"
         },
         {
             "title": "Certified API Pentesting & Bug Bounty 101",
-            "issuer": "eLearnSecurity / TCM",
+            "issuer": "Capprico Security University",
+            "href": "#",
             "icon": "shield"
         },
         {
             "title": "Network Analysis",
-            "issuer": "Security Platform",
+            "issuer": "Google / Drive Certification",
+            "href": "#",
             "icon": "book"
         },
         {
-            "title": "Mastercard - Cybersecurity Job Simulation",
+            "title": "Mastercard Cybersecurity Job Simulation",
             "issuer": "Forage",
+            "href": "#",
             "icon": "briefcase"
         }
     ],
     "hobbies": [
         {
-            "title": "Cyber security Research",
-            "sub": "Ensure cybersecurity through awareness and research",
+            "title": "Cybersecurity Research",
+            "sub": "Bug bounty hunting, CTF challenges, and security writeups",
             "icon": "shield"
         },
         {

@@ -141,11 +141,18 @@ const Resume = () => (
         <SectionHeader accent={sectionAccents.education} label="Certificates" />
         <div className="relative border-l-2 border-black/[0.06] pl-8 space-y-10">
           {resumeData.certificates.map((item, i) => (
-            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
+            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group">
               <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-white z-10`} />
               <div className="flex items-center gap-3">
                 <span className={`${sectionAccents.education.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon] || <FaAward />}</span>
-                <h4 className="text-base font-medium text-text-primary uppercase tracking-tight transition-all">{item.title}</h4>
+                {item.href && item.href !== '#' ? (
+                  <a href={item.href} target="_blank" rel="noreferrer"
+                    className="text-base font-medium text-text-primary uppercase tracking-tight hover:text-accent-blue transition-colors">
+                    {item.title}
+                  </a>
+                ) : (
+                  <h4 className="text-base font-medium text-text-primary uppercase tracking-tight">{item.title}</h4>
+                )}
               </div>
               <p className="text-text-secondary font-medium mt-1 text-sm">{item.issuer}</p>
             </motion.div>

@@ -1,7 +1,7 @@
 {
     "bio": [
-        "Vulnerability Assessment & Penetration Testing (VAPT) specialist with hands-on experience securing web applications, networks, and cloud-facing assets. Currently a Project Engineer at Palc Networks, Chennai, where I run vulnerability assessments, harden email security (SPF, DKIM, DMARC), and operate Wazuh SIEM for real-time threat monitoring. B.E. in Computer Science from Mepco Schlenk Engineering College.",
-        "Acknowledged in the Hall of Fame / Vulnerability Disclosure Programs of NASA, WHO, UNESCO, BBC, the Singapore Cyber Security Agency, Swiss Post, IOM, USDA, the U.S. Department of Energy, CERT-EU, and India's NCIIPC (Top 15 Contributor) — 19+ organizations to date. I follow structured methodologies (OWASP Top 10, manual + tool-assisted testing) to find and responsibly report real-world vulnerabilities, backed by certifications in WiFi Pentesting and API Pentesting & Bug Bounty."
+        "Results-driven Penetration Tester and Vulnerability Assessment specialist with 3+ years of hands-on security experience. Skilled in web application pentesting, network vulnerability assessments, and SIEM-based threat detection — experienced across the full VAPT lifecycle: reconnaissance, exploitation, reporting, and remediation guidance using OWASP Top 10 and PTES methodologies.",
+        "Recognized by 20+ global organizations including NASA, WHO, UNESCO, BBC, Singapore CSA, USDA, U.S. DoE, CERT-EU, and India's NCIIPC (Top 15 Contributor) for responsible vulnerability disclosure. Certified in WiFi Pentesting and API Pentesting & Bug Bounty. Active bug bounty hunter on YesWeHack with a focus on web application and API vulnerabilities."
     ],
     "services": [
         {
@@ -67,24 +67,34 @@
             "color": "text-yellow-400"
         },
         {
-            "label": "Docker",
-            "iconType": "FaDocker",
-            "color": "text-blue-500"
+            "label": "Metasploit",
+            "iconType": "FaTerminal",
+            "color": "text-red-500"
+        },
+        {
+            "label": "Nessus",
+            "iconType": "FaShieldAlt",
+            "color": "text-accent-purple"
+        },
+        {
+            "label": "SQLMap",
+            "iconType": "FaBug",
+            "color": "text-yellow-600"
+        },
+        {
+            "label": "Linux",
+            "iconType": "FaLinux",
+            "color": "text-text-primary"
+        },
+        {
+            "label": "Python",
+            "iconType": "FaPython",
+            "color": "text-yellow-400"
         },
         {
             "label": "Git",
             "iconType": "FaGitAlt",
             "color": "text-orange-500"
-        },
-        {
-            "label": "Bash",
-            "iconType": "FaTerminal",
-            "color": "text-green-400"
-        },
-        {
-            "label": "React.js",
-            "iconType": "FaReact",
-            "color": "text-cyan-400"
         }
     ]
 }
