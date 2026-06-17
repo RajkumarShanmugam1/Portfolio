@@ -69,7 +69,7 @@ const About = () => (
         Tech Stack
         <div className="flex-1 h-px" style={{ background: 'rgba(0,0,0,0.08)' }} />
       </h3>
-      <div className="flex flex-wrap gap-2.5">
+      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-3">
         {aboutData.techStack.map((s, i) => (
           <motion.a
             key={s.label}
@@ -77,20 +77,20 @@ const About = () => (
             target="_blank"
             rel="noreferrer"
             variants={fadeInUp} initial="hidden" animate="visible" custom={i * 0.05 + 4}
-            className="flex items-center gap-2.5 px-3 py-2 rounded-xl font-medium group transition-all duration-200 hover:-translate-y-0.5"
+            className="flex flex-col items-center justify-center gap-2 py-4 rounded-2xl font-medium group transition-all duration-200 hover:-translate-y-1 text-center"
             style={innerCard}
-            whileHover={{ scale: 1.04 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}>
             <span
-              className="flex-shrink-0 flex items-center justify-center text-white rounded-[8px] text-sm group-hover:scale-110 transition-transform"
+              className="flex items-center justify-center text-white rounded-[10px] text-lg group-hover:scale-110 transition-transform"
               style={{
-                width: 28, height: 28,
+                width: 40, height: 40,
                 background: s.bg,
-                boxShadow: '0 2px 6px ' + s.shadow + ', 0 1px 0 rgba(255,255,255,0.2) inset',
+                boxShadow: '0 3px 8px ' + s.shadow + ', 0 1px 0 rgba(255,255,255,0.25) inset',
               }}>
               {iconMap[s.iconType]}
             </span>
-            <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">{s.label}</span>
+            <span className="text-[11px] font-medium text-text-secondary group-hover:text-text-primary transition-colors leading-tight">{s.label}</span>
           </motion.a>
         ))}
       </div>
