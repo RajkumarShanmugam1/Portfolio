@@ -20,10 +20,10 @@ const iconMap = {
 };
 
 const cardAccents = [
-  { iconColor: '#5ac8fa', iconBg: 'rgba(90,200,250,0.18)' },
-  { iconColor: '#af52de', iconBg: 'rgba(175,82,222,0.15)' },
-  { iconColor: '#ff2d55', iconBg: 'rgba(255,45,85,0.15)' },
-  { iconColor: '#007aff', iconBg: 'rgba(0,122,255,0.15)' },
+  { iconBg: 'linear-gradient(145deg,#5ac8fa,#007aab)', shadow: 'rgba(90,200,250,0.4)' },
+  { iconBg: 'linear-gradient(145deg,#bf5af2,#7d2fe6)', shadow: 'rgba(175,82,222,0.4)' },
+  { iconBg: 'linear-gradient(145deg,#ff6b8a,#c0132e)', shadow: 'rgba(255,45,85,0.4)' },
+  { iconBg: 'linear-gradient(145deg,#30b0c7,#006fa6)', shadow: 'rgba(0,122,194,0.4)' },
 ];
 
 const innerCard = {
@@ -49,8 +49,8 @@ const About = () => (
             style={innerCard}
             whileHover={{ y: -2, background: 'rgba(255,255,255,0.85)' }}>
             <div className="flex items-start gap-5 relative z-10">
-              <div style={{ color: accent.iconColor, background: accent.iconBg }}
-                className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl text-xl group-hover:scale-105 transition-transform duration-300">
+              <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl text-white text-xl group-hover:scale-110 transition-transform duration-300"
+                style={{ background: accent.iconBg, boxShadow: '0 3px 10px ' + accent.shadow + ', 0 1px 0 rgba(255,255,255,0.2) inset' }}>
                 {iconMap[service.iconType]}
               </div>
               <div>

@@ -72,8 +72,8 @@ const Sidebar = () => {
           <ul className="space-y-3">
             {[{ icon: <FaEnvelope />, title: 'Email', value: profileData.email }].map((item, idx) => (
               <li key={idx} className="flex items-center gap-3 p-3 rounded-xl transition-all group" style={row}>
-                <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-lg text-accent-blue text-sm transition-all duration-300 group-hover:scale-105"
-                  style={{ background: 'rgba(0,122,255,0.15)' }}>
+                <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-[9px] text-white text-sm transition-all duration-300 group-hover:scale-110"
+                  style={{ background: 'linear-gradient(145deg,#3a8eff,#0055d4)', boxShadow: '0 2px 8px rgba(0,122,255,0.4), 0 1px 0 rgba(255,255,255,0.2) inset' }}>
                   {item.icon}
                 </div>
                 <div className="min-w-0">
