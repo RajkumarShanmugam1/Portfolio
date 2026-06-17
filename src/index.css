@@ -1,132 +1,128 @@
 @import "tailwindcss";
 
 @theme {
-    /* === APPLE / macOS LIGHT THEME === */
+    /* === Soft Indigo Mist — Light Glass Theme === */
 
-    /* Backgrounds */
-    --color-site-bg: #f5f5f7;
-    --color-background: #f5f5f7;
-    --color-card-bg: #fbfbfd;
-    --color-surface: #fbfbfd;
+    --color-site-bg: #dde4ff;
+    --color-background: #dde4ff;
+    --color-card-bg: rgba(255, 255, 255, 0.75);
+    --color-surface: rgba(255, 255, 255, 0.65);
 
     /* Apple system color palette */
     --color-accent-blue: #007aff;
-    --color-accent-cyan: #5ac8fa;
+    --color-accent-cyan: #0891b2;
     --color-accent-emerald: #34c759;
-    --color-accent-purple: #af52de;
-    --color-accent-pink: #ff2d55;
-    --color-accent-gold: #ff9500;
+    --color-accent-purple: #7c3aed;
+    --color-accent-pink: #e11d48;
+    --color-accent-gold: #d97706;
 
-    /* Text System */
+    /* Text — dark (readable on light glass cards) */
     --color-text-primary: #1d1d1f;
-    --color-text-secondary: #6e6e73;
-    --color-text-muted: #86868b;
+    --color-text-secondary: rgba(0, 0, 0, 0.62);
+    --color-text-muted: rgba(0, 0, 0, 0.38);
 
     /* Border Radius */
     --radius-4xl: 1.25rem;
 
-    /* Soft, flat elevation — no glow */
-    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+    /* Glass elevation */
+    --shadow-card: 0 8px 32px rgba(80, 60, 180, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset;
+    --shadow-card-hover: 0 20px 60px rgba(80, 60, 180, 0.18), 0 1px 0 rgba(255,255,255,1) inset;
 
-    --shadow-glow-blue: none;
-    --shadow-glow-purple: none;
-    --shadow-glow-pink: none;
-    --shadow-glow-gold: none;
-
-    --background-image-mesh: none;
+    --shadow-glow-blue: 0 0 24px rgba(0, 122, 255, 0.25);
+    --shadow-glow-purple: 0 0 24px rgba(124, 58, 237, 0.25);
+    --shadow-glow-pink: 0 0 24px rgba(225, 29, 72, 0.25);
+    --shadow-glow-gold: 0 0 24px rgba(217, 119, 6, 0.25);
 }
 
 @layer base {
+    html {
+        background: #dde4ff;
+        min-height: 100%;
+    }
+
     body {
         @apply text-text-primary font-sans selection:bg-accent-blue/20 selection:text-text-primary;
-        background-color: var(--color-site-bg);
+        background: transparent;
         min-height: 100vh;
         overflow-x: hidden;
         font-feature-settings: "cv11", "ss01";
     }
 
-    /* Focus-visible ring — keyboard users only, not mouse clicks */
     :focus-visible {
         outline: 2px solid var(--color-accent-blue);
         outline-offset: 2px;
         border-radius: 6px;
     }
 
-    /* Refined Scrollbar */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f5f5f7;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #c7c7cc;
-        border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: #aeaeb2;
-    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
 }
 
 @layer components {
 
-    /* ── Card (white, flat elevation, no blur/glass) ──
-       min-height keeps every tab's card the same footprint so the page
-       doesn't jump in size when switching between sparse and dense sections. */
+    /* ── Frosted Glass Card — white translucent on light bg ── */
     .glass {
         @apply relative overflow-hidden;
-        background: var(--color-card-bg);
-        box-shadow: var(--shadow-card);
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        box-shadow:
+            0 8px 40px rgba(80, 60, 180, 0.10),
+            0 1px 0 rgba(255, 255, 255, 0.95) inset;
         min-height: 32rem;
     }
 
     .glass-hover {
         @apply transition-all duration-300;
         &:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow:
+                0 20px 60px rgba(80, 60, 180, 0.18),
+                0 1px 0 rgba(255, 255, 255, 1) inset;
         }
     }
 
-    /* ── Primary Button (system blue) ── */
+    /* ── Sub-glass: inner panels / rows / tags ── */
+    .glass-inner {
+        background: rgba(255, 255, 255, 0.65);
+        border: 1px solid rgba(0, 0, 0, 0.07);
+    }
+
+    /* ── Primary Button ── */
     .btn-primary {
         @apply px-8 py-3 text-white font-medium text-sm rounded-xl transform active:scale-95 transition-all duration-200;
         background: var(--color-accent-blue);
-        box-shadow: 0 1px 3px rgba(0, 122, 255, 0.3);
+        box-shadow: 0 2px 12px rgba(0, 122, 255, 0.35);
     }
 
     .btn-primary:hover {
         background: #0071e3;
+        box-shadow: 0 4px 20px rgba(0, 122, 255, 0.45);
     }
 
-    /* ── Secondary Button (light surface) ── */
+    /* ── Secondary Button ── */
     .btn-secondary {
         @apply px-8 py-3 font-medium text-sm rounded-xl transform active:scale-95 transition-all duration-200;
-        background: var(--color-surface);
+        background: rgba(0, 0, 0, 0.05);
         color: var(--color-text-primary);
-        box-shadow: var(--shadow-card);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
     .btn-secondary:hover {
-        background: #f5f5f7;
+        background: rgba(0, 0, 0, 0.08);
     }
 
-    /* ── Text Glow (kept as bold text helper) ── */
-    .text-glow {
-        @apply text-text-primary font-medium;
-    }
+    .text-glow { @apply text-text-primary font-medium; }
 
-    /* ── Gradient Text Helper ── */
     .gradient-text {
-        background: linear-gradient(135deg, #1d1d1f 0%, #6e6e73 100%);
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
-    /* ── Hairline Separator ── */
     .neon-line {
         height: 1px;
         background: rgba(0, 0, 0, 0.08);

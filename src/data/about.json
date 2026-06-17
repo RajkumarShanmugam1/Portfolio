@@ -82,16 +82,6 @@
             "color": "text-yellow-600"
         },
         {
-            "label": "Linux",
-            "iconType": "FaLinux",
-            "color": "text-text-primary"
-        },
-        {
-            "label": "Python",
-            "iconType": "FaPython",
-            "color": "text-yellow-400"
-        },
-        {
             "label": "Git",
             "iconType": "FaGitAlt",
             "color": "text-orange-500"

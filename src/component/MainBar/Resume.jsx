@@ -32,9 +32,9 @@ const hobbyIcons = {
    hoverClass is a full literal class string (not built via interpolation)
    so Tailwind's static scanner can actually find and generate it. */
 const sectionAccents = {
-  education: { dot: 'bg-accent-cyan', text: 'text-accent-cyan', hoverClass: 'group-hover:text-accent-cyan', icon: <FaGraduationCap />, bg: '#f0f9ff' },
-  experience: { dot: 'bg-accent-purple', text: 'text-accent-purple', hoverClass: 'group-hover:text-accent-purple', icon: <FaBriefcase />, bg: '#faf5fd' },
-  hobbies: { dot: 'bg-accent-pink', text: 'text-accent-pink', hoverClass: 'group-hover:text-accent-pink', icon: <FaLeaf />, bg: '#fff5f7' },
+  education: { dot: 'bg-accent-cyan', text: 'text-accent-cyan', hoverClass: 'group-hover:text-accent-cyan', icon: <FaGraduationCap />, bg: 'rgba(8,145,178,0.12)' },
+  experience: { dot: 'bg-accent-purple', text: 'text-accent-purple', hoverClass: 'group-hover:text-accent-purple', icon: <FaBriefcase />, bg: 'rgba(124,58,237,0.12)' },
+  hobbies: { dot: 'bg-accent-pink', text: 'text-accent-pink', hoverClass: 'group-hover:text-accent-pink', icon: <FaLeaf />, bg: 'rgba(225,29,72,0.12)' },
 };
 
 const SectionHeader = ({ accent, label }) => (
@@ -52,9 +52,9 @@ const Resume = () => (
   <article className="glass p-8 pt-6 lg:p-12 lg:pt-8 rounded-3xl space-y-10 animate-fadeIn relative">
 
     {/* ── Header ── */}
-    <header className="flex items-center justify-between border-b border-black/[0.06] pb-6">
+    <header className="flex items-center justify-between border-b pb-6" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
       <div className="flex items-center gap-5">
-        <div className="p-3 rounded-xl text-accent-blue text-2xl bg-[#f0f7ff] flex-shrink-0">
+        <div className="p-3 rounded-xl text-accent-blue text-2xl flex-shrink-0" style={{ background: 'rgba(0,122,255,0.1)' }}>
           <FaFileLines />
         </div>
         <h2 className="text-3xl lg:text-4xl font-medium text-text-primary tracking-tight">
@@ -180,7 +180,7 @@ const Resume = () => (
       {/* Skills — full width so it doesn't sit alone beside an empty column */}
       <section className="md:col-span-2">
         <div className="flex items-center gap-4 mb-8">
-          <div className="p-2.5 rounded-xl bg-[#faf5fd] text-accent-purple text-xl">
+          <div className="p-2.5 rounded-xl text-accent-purple text-xl" style={{ background: 'rgba(175,82,222,0.12)' }}>
             <div className="w-5 h-5 rounded-sm bg-accent-purple" />
           </div>
           <div>
@@ -200,7 +200,7 @@ const Resume = () => (
                   {s.value}%
                 </span>
               </div>
-              <div className="h-1.5 bg-black/[0.06] rounded-full overflow-hidden">
+              <div className="h-1.5 bg-black/[0.07] rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${s.value}%` }}

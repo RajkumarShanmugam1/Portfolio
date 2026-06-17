@@ -22,7 +22,7 @@ const Portfolio = () => {
             {/* ── Header + Filters (same row on desktop to save vertical space) ── */}
             <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 border-b border-black/[0.06] pb-6">
                 <div className="flex items-center gap-5">
-                    <div className="p-3 rounded-xl text-accent-blue text-2xl bg-[#f0f7ff] flex-shrink-0">
+                    <div className="p-3 rounded-xl text-accent-blue text-2xl flex-shrink-0" style={{ background: 'rgba(0,122,255,0.1)' }}>
                         <FaBriefcase />
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-medium text-text-primary tracking-tight">
@@ -31,14 +31,15 @@ const Portfolio = () => {
                 </div>
 
                 {/* Desktop: pill filters */}
-                <ul className="hidden lg:flex bg-black/[0.04] p-1 rounded-xl overflow-x-auto max-w-full gap-1 flex-shrink-0">
+                <ul className="hidden lg:flex p-1 rounded-xl overflow-x-auto max-w-full gap-1 flex-shrink-0" style={{ background: 'rgba(255,255,255,0.35)', border: '1px solid rgba(255,255,255,0.5)' }}>
                     {filters.map(f => (
                         <li key={f.value} className="shrink-0 relative">
                             <button
                                 className={`relative px-4 py-1.5 text-xs font-medium rounded-lg transition-all duration-300 whitespace-nowrap uppercase tracking-wider ${active === f.value
-                                    ? 'text-text-primary bg-surface shadow-card'
+                                    ? 'text-text-primary'
                                     : 'text-text-muted hover:text-text-primary'
                                     }`}
+                        style={active === f.value ? { background: 'rgba(255,255,255,0.85)', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' } : {}}
                                 onClick={() => setActive(f.value)}
                             >
                                 <span className="relative z-10">{f.label}</span>
@@ -77,7 +78,8 @@ const Portfolio = () => {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.25, delay: i * 0.02 }}
-                                className="relative group overflow-hidden rounded-2xl bg-[#fafafa] transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
+                                className="relative group overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1"
+                                style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.7)', boxShadow: '0 4px 16px rgba(0,0,0,0.07)' }}
                             >
                                 <a href={p.href} target="_blank" rel="noreferrer" className="block w-full">
                                     <div className="aspect-[4/3] overflow-hidden relative">
@@ -92,7 +94,7 @@ const Portfolio = () => {
                                     </div>
 
                                     <div className="p-3 sm:p-5 space-y-1.5 sm:space-y-2 relative z-10">
-                                        <p className="text-[9px] sm:text-[10px] font-medium uppercase tracking-wider px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-text-secondary bg-black/[0.04] inline-block">
+                                        <p className="text-[9px] sm:text-[10px] font-medium uppercase tracking-wider px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-text-secondary inline-block" style={{ background: 'rgba(0,0,0,0.05)' }}>
                                             {p.sub}
                                         </p>
                                         <h3 className="text-sm sm:text-base font-medium text-text-primary leading-tight line-clamp-1">{p.title}</h3>
