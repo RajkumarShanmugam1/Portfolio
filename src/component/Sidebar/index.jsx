@@ -8,10 +8,10 @@ import profileData from '../../data/profile.json';
 import resumePdf from '../../assets/Resume_Security_engineer.pdf';
 
 const socialIcons = {
-  GitHub: <FaGithub />,
-  LinkedIn: <FaLinkedin />,
-  Medium: <FaMedium />,
-  Credly: <SiCredly />,
+  GitHub:   { icon: <FaGithub />,   bg: 'linear-gradient(145deg,#333,#111)',     shadow: 'rgba(0,0,0,0.35)' },
+  LinkedIn: { icon: <FaLinkedin />, bg: 'linear-gradient(145deg,#0a66c2,#004a93)', shadow: 'rgba(10,102,194,0.4)' },
+  Medium:   { icon: <FaMedium />,   bg: 'linear-gradient(145deg,#242424,#000)',   shadow: 'rgba(0,0,0,0.35)' },
+  Credly:   { icon: <SiCredly />,   bg: 'linear-gradient(145deg,#ff6b00,#d44f00)', shadow: 'rgba(255,107,0,0.4)' },
 };
 
 const row = {
@@ -85,13 +85,19 @@ const Sidebar = () => {
           </ul>
 
           <div className="flex justify-center gap-2.5">
-            {profileData.social.filter(s => s.type === 'icon').map((social, idx) => (
-              <a key={idx} href={social.url} target="_blank" rel="noreferrer" aria-label={social.name}
-                className="w-10 h-10 flex items-center justify-center rounded-xl text-text-secondary hover:text-accent-blue hover:-translate-y-1 transition-all duration-300"
-                style={row}>
-                {socialIcons[social.name]}
-              </a>
-            ))}
+            {profileData.social.filter(sc => sc.type === 'icon').map((social, idx) => {
+              const si = socialIcons[social.name] ?? { icon: null, bg: '#555', shadow: 'rgba(0,0,0,0.25)' };
+              return (
+                <a key={idx} href={social.url} target="_blank" rel="noreferrer" aria-label={social.name}
+                  className="w-10 h-10 flex items-center justify-center rounded-[11px] text-white text-lg hover:-translate-y-1 hover:scale-110 transition-all duration-200"
+                  style={{
+                    background: si.bg,
+                    boxShadow: '0 3px 10px ' + si.shadow + ', 0 1px 0 rgba(255,255,255,0.2) inset',
+                  }}>
+                  {si.icon}
+                </a>
+              );
+            })}
           </div>
 
           <a href={resumePdf} download="Rajkumar_Resume.pdf"
