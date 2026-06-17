@@ -1,6 +1,18 @@
 @import "tailwindcss";
 
 @theme {
+    /* === Apple San Francisco system font stack === */
+    --font-sans:
+        -apple-system, BlinkMacSystemFont,
+        "SF Pro Text", "SF Pro Display",
+        "Helvetica Neue", Arial, sans-serif;
+    --font-display:
+        "SF Pro Display", -apple-system, BlinkMacSystemFont,
+        "Helvetica Neue", Arial, sans-serif;
+    --font-mono:
+        "SF Mono", ui-monospace, "Cascadia Code", "Fira Code",
+        "Courier New", monospace;
+
     /* === Soft Indigo Mist — Light Glass Theme === */
 
     --color-site-bg: #dde4ff;
@@ -45,7 +57,26 @@
         background: transparent;
         min-height: 100vh;
         overflow-x: hidden;
-        font-feature-settings: "cv11", "ss01";
+        /* Apple SF Pro rendering */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        font-size: 17px;       /* Apple's default body size */
+        line-height: 1.47059;  /* Apple's default line-height ratio */
+        letter-spacing: -0.022em; /* SF Pro subtle negative tracking */
+    }
+
+    /* Display headings — SF Pro Display tracking */
+    h1, h2, h3 {
+        font-family: var(--font-display);
+        letter-spacing: -0.03em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h4, h5, h6 {
+        letter-spacing: -0.02em;
+        -webkit-font-smoothing: antialiased;
     }
 
     :focus-visible {
