@@ -4,6 +4,22 @@ import {
   FaCircleInfo,
   FaFileLines, FaRss, FaBriefcase, FaAward
 } from 'react-icons/fa6';
+
+class TabErrorBoundary extends React.Component {
+  constructor(props) { super(props); this.state = { error: false }; }
+  static getDerivedStateFromError() { return { error: true }; }
+  componentDidUpdate(prev) { if (prev.tabId !== this.props.tabId) this.setState({ error: false }); }
+  render() {
+    if (this.state.error) return (
+      <div className="glass p-8 lg:p-12 rounded-3xl flex flex-col items-center justify-center min-h-64 text-text-muted gap-3">
+        <p className="text-4xl">⚠️</p>
+        <p className="font-medium text-text-primary">Something went wrong loading this section.</p>
+        <button onClick={() => this.setState({ error: false })} className="btn-primary text-xs px-4 py-2">Try again</button>
+      </div>
+    );
+    return this.props.children;
+  }
+}
 // About loads eagerly — it's the default tab and should render immediately.
 // The rest are code-split so a visitor only downloads the tab they actually open.
 import About from './About';
@@ -82,9 +98,11 @@ function MainBar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
           >
-            <Suspense fallback={<div className="glass p-8 lg:p-12 rounded-3xl h-64 animate-pulse" />}>
-              <ActiveComponent />
-            </Suspense>
+            <TabErrorBoundary tabId={activeId}>
+              <Suspense fallback={<div className="glass p-8 lg:p-12 rounded-3xl h-64 animate-pulse" />}>
+                <ActiveComponent />
+              </Suspense>
+            </TabErrorBoundary>
           </motion.div>
         </AnimatePresence>
       </div>
