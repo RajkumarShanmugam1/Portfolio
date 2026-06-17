@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaCircleInfo,
   FaFileLines, FaRss, FaBriefcase, FaAward
@@ -115,10 +115,11 @@ function MainBar() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeId}
-            initial={{ opacity: 0, scale: 0.93, y: 12 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 1.04, y: -10 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 28, mass: 0.8 }}
+            style={{ transformOrigin: 'bottom center', willChange: 'transform, opacity' }}
+            initial={{ opacity: 0, scaleY: 0.12, scaleX: 0.72, y: 70 }}
+            animate={{ opacity: 1, scaleY: 1,    scaleX: 1,    y: 0  }}
+            exit={{    opacity: 0, scaleY: 0.12, scaleX: 0.72, y: 70 }}
+            transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
           >
             <TabErrorBoundary tabId={activeId}>
               <Suspense fallback={
