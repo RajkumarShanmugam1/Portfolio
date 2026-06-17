@@ -1,52 +1,70 @@
 {
     "bio": [
-        "Completed a Computer Science Engineering degree at Mepco Schlenk Engineering College, Sivakasi, Tamil Nadu. Currently engaged as a Project Engineer at Palc Networks, Chennai. Ensuring the security of numerous assets and identifying many vulnerabilities in both government and private sectors, often providing ideas for fixes.",
-        "Passionate about cybersecurity and bug bounty programs, with a strong enthusiasm for identifying vulnerabilities and enhancing digital security. Committed to raising awareness about cyber issues and promoting preventive measures against cybercrime. Dedicated to continuous learning and contributing to the evolving landscape of online safety."
+        "Vulnerability Assessment & Penetration Testing (VAPT) specialist with hands-on experience securing web applications, networks, and cloud-facing assets. Currently a Project Engineer at Palc Networks, Chennai, where I run vulnerability assessments, harden email security (SPF, DKIM, DMARC), and operate Wazuh SIEM for real-time threat monitoring. B.E. in Computer Science from Mepco Schlenk Engineering College.",
+        "Acknowledged in the Hall of Fame / Vulnerability Disclosure Programs of NASA, WHO, UNESCO, BBC, the Singapore Cyber Security Agency, Swiss Post, IOM, USDA, the U.S. Department of Energy, CERT-EU, and India's NCIIPC (Top 15 Contributor) — 19+ organizations to date. I follow structured methodologies (OWASP Top 10, manual + tool-assisted testing) to find and responsibly report real-world vulnerabilities, backed by certifications in WiFi Pentesting and API Pentesting & Bug Bounty."
     ],
     "services": [
         {
-            "title": "Security Research",
-            "text": "Advanced vulnerability assessment and bug hunting with a focus on web and network security.",
-            "iconType": "FaShieldAlt",
-            "colorClass": "from-accent-blue/20 to-accent-purple/5"
+            "title": "Web Application VAPT",
+            "text": "Manual and automated testing of web apps against the OWASP Top 10 — auth flaws, injection, business-logic and access-control issues.",
+            "iconType": "FaShieldAlt"
         },
         {
-            "title": "Security Development",
-            "text": "Architecting secure network tools and building modern responsive GUIs for complex systems.",
-            "iconType": "FaTerminal",
-            "colorClass": "from-accent-cyan/20 to-accent-blue/5"
+            "title": "Network & Infrastructure VAPT",
+            "text": "Vulnerability assessments and penetration testing across internal and external network infrastructure, with remediation guidance.",
+            "iconType": "FaNetworkWired"
+        },
+        {
+            "title": "Bug Bounty & Vulnerability Research",
+            "text": "19+ Hall of Fame / acknowledgement recognitions from NASA, WHO, UNESCO, BBC, USDA, U.S. DoE, CERT-EU and others for responsible disclosure.",
+            "iconType": "FaBug"
+        },
+        {
+            "title": "Security Operations & Hardening",
+            "text": "SIEM monitoring (Wazuh), email security hardening (SPF/DKIM/DMARC), and IAM configuration (OKTA, Auth0, SSO, MFA).",
+            "iconType": "FaTerminal"
         }
     ],
     "techStack": [
         {
-            "label": "Pentesting",
+            "label": "VAPT",
             "iconType": "FaShieldAlt",
             "color": "text-accent-cyan"
         },
         {
-            "label": "Security Research",
+            "label": "OWASP Top 10",
             "iconType": "FaShieldAlt",
             "color": "text-accent-blue"
         },
         {
-            "label": "React.js",
-            "iconType": "FaReact",
-            "color": "text-cyan-400"
+            "label": "Burp Suite",
+            "iconType": "FaBug",
+            "color": "text-orange-500"
         },
         {
-            "label": "Python",
-            "iconType": "FaPython",
-            "color": "text-yellow-400"
-        },
-        {
-            "label": "Linux",
-            "iconType": "FaLinux",
-            "color": "text-white"
+            "label": "Nmap",
+            "iconType": "FaNetworkWired",
+            "color": "text-accent-purple"
         },
         {
             "label": "Wireshark",
             "iconType": "SiWireshark",
             "color": "text-blue-400"
+        },
+        {
+            "label": "Wazuh SIEM",
+            "iconType": "FaShieldAlt",
+            "color": "text-green-500"
+        },
+        {
+            "label": "Linux",
+            "iconType": "FaLinux",
+            "color": "text-text-primary"
+        },
+        {
+            "label": "Python",
+            "iconType": "FaPython",
+            "color": "text-yellow-400"
         },
         {
             "label": "Docker",
@@ -62,6 +80,11 @@
             "label": "Bash",
             "iconType": "FaTerminal",
             "color": "text-green-400"
+        },
+        {
+            "label": "React.js",
+            "iconType": "FaReact",
+            "color": "text-cyan-400"
         }
     ]
 }

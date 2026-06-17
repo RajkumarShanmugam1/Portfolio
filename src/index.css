@@ -1,48 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-    /* === PROFESSIONAL TECH THEME === */
+    /* === APPLE / macOS LIGHT THEME === */
 
     /* Backgrounds */
-    --color-site-bg: #000000;
-    --color-background: #000000;
-    --color-card-bg: rgba(10, 10, 10, 0.8);
+    --color-site-bg: #f5f5f7;
+    --color-background: #f5f5f7;
+    --color-card-bg: #fbfbfd;
+    --color-surface: #fbfbfd;
 
-    /* ✨ Minimalist Accent System */
-    --color-accent-blue: #3b82f6;
-    --color-accent-cyan: #06b6d4;
-    --color-accent-emerald: #10b981;
-    --color-accent-purple: #8b5cf6;
-    --color-accent-pink: #ec4899;
-    --color-accent-gold: #f59e0b;
+    /* Apple system color palette */
+    --color-accent-blue: #007aff;
+    --color-accent-cyan: #5ac8fa;
+    --color-accent-emerald: #34c759;
+    --color-accent-purple: #af52de;
+    --color-accent-pink: #ff2d55;
+    --color-accent-gold: #ff9500;
 
     /* Text System */
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #a1a1aa;
-    --color-text-muted: #52525b;
+    --color-text-primary: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-text-muted: #86868b;
 
     /* Border Radius */
-    --radius-4xl: 1.5rem; /* Less rounded for professional look */
+    --radius-4xl: 1.25rem;
 
-    /* 🌟 Shadows - Clean, precise */
-    --shadow-card: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 4px 20px -5px rgba(0, 0, 0, 0.5);
-    
-    /* Removed all glowing shadows, replacing with empty values so classes don't break immediately */
+    /* Soft, flat elevation — no glow */
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+
     --shadow-glow-blue: none;
     --shadow-glow-purple: none;
     --shadow-glow-pink: none;
     --shadow-glow-gold: none;
 
-    /* Background Mesh - empty for clean look */
     --background-image-mesh: none;
 }
 
 @layer base {
     body {
-        @apply text-text-primary font-sans selection:bg-white/20 selection:text-white;
+        @apply text-text-primary font-sans selection:bg-accent-blue/20 selection:text-text-primary;
         background-color: var(--color-site-bg);
-        background-image: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 100%);
-        background-attachment: fixed;
         min-height: 100vh;
         overflow-x: hidden;
         font-feature-settings: "cv11", "ss01";
@@ -54,65 +51,77 @@
     }
 
     ::-webkit-scrollbar-track {
-        background: #000000;
+        background: #f5f5f7;
     }
 
     ::-webkit-scrollbar-thumb {
-        background: #333333;
+        background: #c7c7cc;
         border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: #555555;
+        background: #aeaeb2;
     }
 }
 
 @layer components {
 
-    /* ── Glass Card ── */
+    /* ── Card (white, flat elevation, no blur/glass) ──
+       min-height keeps every tab's card the same footprint so the page
+       doesn't jump in size when switching between sparse and dense sections. */
     .glass {
-        @apply backdrop-blur-xl border border-white/[0.08] relative overflow-hidden;
-        background: rgba(15, 15, 15, 0.7);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        @apply relative overflow-hidden;
+        background: var(--color-card-bg);
+        box-shadow: var(--shadow-card);
+        min-height: 32rem;
     }
 
     .glass-hover {
-        @apply hover:border-white/[0.15] transition-all duration-300;
+        @apply transition-all duration-300;
         &:hover {
-            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
     }
 
-    /* ── Primary Button ── */
+    /* ── Primary Button (system blue) ── */
     .btn-primary {
-        @apply px-8 py-3 text-white font-semibold text-sm rounded-lg transform hover:-translate-y-0.5 active:scale-95 transition-all duration-300 border border-white/20 relative overflow-hidden;
-        background: rgba(255, 255, 255, 0.05);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        @apply px-8 py-3 text-white font-medium text-sm rounded-xl transform active:scale-95 transition-all duration-200;
+        background: var(--color-accent-blue);
+        box-shadow: 0 1px 3px rgba(0, 122, 255, 0.3);
     }
 
     .btn-primary:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.4);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        background: #0071e3;
     }
 
-    /* ── Text Glow ── */
+    /* ── Secondary Button (light surface) ── */
+    .btn-secondary {
+        @apply px-8 py-3 font-medium text-sm rounded-xl transform active:scale-95 transition-all duration-200;
+        background: var(--color-surface);
+        color: var(--color-text-primary);
+        box-shadow: var(--shadow-card);
+    }
+
+    .btn-secondary:hover {
+        background: #f5f5f7;
+    }
+
+    /* ── Text Glow (kept as bold text helper) ── */
     .text-glow {
-        @apply text-white font-medium;
-        /* Removed actual glow, just keeping class for bold white text */
+        @apply text-text-primary font-medium;
     }
 
     /* ── Gradient Text Helper ── */
     .gradient-text {
-        background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+        background: linear-gradient(135deg, #1d1d1f 0%, #6e6e73 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
-    /* ── Neon Line Separator (Cleaned up) ── */
+    /* ── Hairline Separator ── */
     .neon-line {
         height: 1px;
-        background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+        background: rgba(0, 0, 0, 0.08);
     }
 }
