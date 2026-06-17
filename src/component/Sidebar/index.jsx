@@ -28,14 +28,22 @@ const Sidebar = () => {
 
         {/* ── Profile ── */}
         <header className="flex flex-row lg:flex-col items-center text-left lg:text-center gap-5 lg:gap-4 p-6 lg:p-8 pb-4 lg:pb-6">
-          <div className="relative shrink-0">
-            <div className="relative p-1 rounded-full"
-              style={{ background: 'rgba(255,255,255,0.85)', boxShadow: '0 4px 16px rgba(80,60,180,0.15)' }}>
-              <div className="relative overflow-hidden rounded-full w-20 h-20 lg:w-32 lg:h-32">
-                <img src={profileData.avatar} alt={profileData.name} className="w-full h-full object-cover" />
+          <div className="relative shrink-0 group">
+            {/* Gradient ring */}
+            <div className="rounded-full p-[3px] transition-all duration-500 group-hover:scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #60a5fa, #6366f1)',
+                boxShadow: '0 0 0 0 rgba(99,102,241,0.4)',
+                animation: 'profileGlow 3s ease-in-out infinite',
+              }}>
+              {/* White gap between ring and photo */}
+              <div className="rounded-full p-[3px] bg-white">
+                <div className="overflow-hidden rounded-full w-20 h-20 lg:w-32 lg:h-32">
+                  <img src={profileData.avatar} alt={profileData.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                </div>
               </div>
             </div>
-            <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-accent-emerald border-2 border-white/20" />
           </div>
 
           <div className="flex-1 lg:flex-none flex flex-col justify-center lg:items-center min-w-0">
