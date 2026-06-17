@@ -2,49 +2,49 @@
     {
         "cat": "awards",
         "href": "#",
-        "img": "/content/images/Extra_Miller.jpg",
+        "img": "content/images/Extra_Miller.jpg",
         "title": "Extra Miller Award",
         "sub": "PalC Networks Q4 2025"
     },
     {
         "cat": "recognition",
         "href": "https://www.nciipc.gov.in/documents/NCIIPC_Newsletter_Oct24.pdf#page=17",
-        "img": "/content/images/Acknowledgement/NCIIPC_Top15.jpg",
+        "img": "content/images/Acknowledgement/NCIIPC_Top15.jpg",
         "title": "NCIIPC Top 15 Contributor",
         "sub": "National Critical Information Infrastructure Protection Centre"
     },
     {
         "cat": "recognition",
         "href": "https://media.geeksforgeeks.org/certificates/1731908151/c4050f31351385023d4125f2c25bb342.pdf",
-        "img": "/content/images/Acknowledgement/GFG.png",
+        "img": "content/images/Acknowledgement/GFG.png",
         "title": "GeeksforGeeks Cyber Warrior",
         "sub": "Recognised for cybersecurity contributions"
     },
     {
         "cat": "recognition",
-        "href": "/content/images/Acknowledgement/NCIIPC1.png",
-        "img": "/content/images/Acknowledgement/NCIIPC1.png",
+        "href": "content/images/Acknowledgement/NCIIPC1.png",
+        "img": "content/images/Acknowledgement/NCIIPC1.png",
         "title": "NCIIPC Acknowledgement (1)",
         "sub": "National Critical Information Infrastructure Protection Centre"
     },
     {
         "cat": "recognition",
-        "href": "/content/images/Acknowledgement/NCIIPC2.png",
-        "img": "/content/images/Acknowledgement/NCIIPC2.png",
+        "href": "content/images/Acknowledgement/NCIIPC2.png",
+        "img": "content/images/Acknowledgement/NCIIPC2.png",
         "title": "NCIIPC Acknowledgement (2)",
         "sub": "National Critical Information Infrastructure Protection Centre"
     },
     {
         "cat": "recognition",
-        "href": "/content/images/Acknowledgement/Switch_bot.png",
-        "img": "/content/images/Acknowledgement/Switch_bot.png",
+        "href": "content/images/Acknowledgement/Switch_bot.png",
+        "img": "content/images/Acknowledgement/Switch_bot.png",
         "title": "SwitchBot IoT Security",
         "sub": "Responsible disclosure acknowledgement"
     },
     {
         "cat": "recognition",
-        "href": "/content/images/Acknowledgement/Agro.jpeg",
-        "img": "/content/images/Acknowledgement/Agro.jpeg",
+        "href": "content/images/Acknowledgement/Agro.jpeg",
+        "img": "content/images/Acknowledgement/Agro.jpeg",
         "title": "Agro Security Acknowledgement",
         "sub": "Responsible disclosure"
     }
