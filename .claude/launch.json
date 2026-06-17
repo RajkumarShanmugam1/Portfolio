@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "react-branch-dev",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd /d D:\\Portfolio-react-branch && npx vite --port 5183"],
+      "port": 5183
+    },
+    {
+      "name": "single-page-portfolio-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "--port", "5184"],
+      "port": 5184
+    }
+  ]
+}
