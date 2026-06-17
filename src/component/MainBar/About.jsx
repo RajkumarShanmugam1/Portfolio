@@ -71,12 +71,19 @@ const About = () => (
       </h3>
       <div className="flex flex-wrap gap-2.5">
         {aboutData.techStack.map((s, i) => (
-          <motion.div key={s.label} variants={fadeInUp} initial="hidden" animate="visible" custom={i * 0.05 + 4}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium cursor-default active:scale-95 group transition-all duration-300 hover:-translate-y-0.5"
-            style={innerCard}>
+          <motion.a
+            key={s.label}
+            href={s.href}
+            target="_blank"
+            rel="noreferrer"
+            variants={fadeInUp} initial="hidden" animate="visible" custom={i * 0.05 + 4}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium group transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+            style={innerCard}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}>
             <span className={`text-xl ${s.color} group-hover:scale-110 transition-transform`}>{iconMap[s.iconType]}</span>
-            <span className="text-sm text-text-secondary">{s.label}</span>
-          </motion.div>
+            <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">{s.label}</span>
+          </motion.a>
         ))}
       </div>
     </section>

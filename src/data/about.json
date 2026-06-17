@@ -29,62 +29,74 @@
         {
             "label": "VAPT",
             "iconType": "FaShieldAlt",
-            "color": "text-accent-cyan"
+            "color": "text-accent-cyan",
+            "href": "https://owasp.org/www-project-web-security-testing-guide/"
         },
         {
             "label": "OWASP Top 10",
             "iconType": "FaShieldAlt",
-            "color": "text-accent-blue"
+            "color": "text-accent-blue",
+            "href": "https://owasp.org/www-project-top-ten/"
         },
         {
             "label": "Burp Suite",
             "iconType": "FaBug",
-            "color": "text-orange-500"
+            "color": "text-orange-500",
+            "href": "https://portswigger.net/burp"
         },
         {
             "label": "Nmap",
             "iconType": "FaNetworkWired",
-            "color": "text-accent-purple"
+            "color": "text-accent-purple",
+            "href": "https://nmap.org"
         },
         {
             "label": "Wireshark",
             "iconType": "SiWireshark",
-            "color": "text-blue-400"
+            "color": "text-blue-400",
+            "href": "https://www.wireshark.org"
         },
         {
             "label": "Wazuh SIEM",
             "iconType": "FaShieldAlt",
-            "color": "text-green-500"
+            "color": "text-green-500",
+            "href": "https://wazuh.com"
         },
         {
             "label": "Linux",
             "iconType": "FaLinux",
-            "color": "text-text-primary"
+            "color": "text-text-primary",
+            "href": "https://www.kernel.org"
         },
         {
             "label": "Python",
             "iconType": "FaPython",
-            "color": "text-yellow-400"
+            "color": "text-yellow-400",
+            "href": "https://www.python.org"
         },
         {
             "label": "Metasploit",
             "iconType": "FaTerminal",
-            "color": "text-red-500"
+            "color": "text-red-500",
+            "href": "https://www.metasploit.com"
         },
         {
             "label": "Nessus",
             "iconType": "FaShieldAlt",
-            "color": "text-accent-purple"
+            "color": "text-accent-purple",
+            "href": "https://www.tenable.com/products/nessus"
         },
         {
             "label": "SQLMap",
             "iconType": "FaBug",
-            "color": "text-yellow-600"
+            "color": "text-yellow-600",
+            "href": "https://sqlmap.org"
         },
         {
             "label": "Git",
             "iconType": "FaGitAlt",
-            "color": "text-orange-500"
+            "color": "text-orange-500",
+            "href": "https://git-scm.com"
         }
     ]
 }
