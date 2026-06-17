@@ -4,6 +4,12 @@ import {
   FaCircleInfo,
   FaFileLines, FaRss, FaBriefcase, FaAward
 } from 'react-icons/fa6';
+import About from './About';
+
+const Resume      = lazy(() => import('./Resume'));
+const Portfolio   = lazy(() => import('./Portfolio'));
+const Achievements = lazy(() => import('./Achievements'));
+const Blog        = lazy(() => import('./Blog'));
 
 class TabErrorBoundary extends React.Component {
   constructor(props) { super(props); this.state = { error: false }; }
@@ -21,18 +27,12 @@ class TabErrorBoundary extends React.Component {
   }
 }
 
-import About from './About';
-const Resume = lazy(() => import('./Resume'));
-const Portfolio = lazy(() => import('./Portfolio'));
-const Achievements = lazy(() => import('./Achievements'));
-const Blog = lazy(() => import('./Blog'));
-
 const tabs = [
-  { name: 'About', icon: <FaCircleInfo />, id: 'about', Component: About },
-  { name: 'Resume', icon: <FaFileLines />, id: 'resume', Component: Resume },
-  { name: 'Portfolio', icon: <FaBriefcase />, id: 'portfolio', Component: Portfolio },
-  { name: 'Awards', icon: <FaAward />, id: 'awards', Component: Achievements },
-  { name: 'Blog', icon: <FaRss />, id: 'blog', Component: Blog }
+  { name: 'About',     icon: <FaCircleInfo />, id: 'about',     Component: About },
+  { name: 'Resume',    icon: <FaFileLines />,  id: 'resume',    Component: Resume },
+  { name: 'Portfolio', icon: <FaBriefcase />,  id: 'portfolio', Component: Portfolio },
+  { name: 'Awards',    icon: <FaAward />,      id: 'awards',    Component: Achievements },
+  { name: 'Blog',      icon: <FaRss />,        id: 'blog',      Component: Blog },
 ];
 
 function MainBar() {
@@ -54,13 +54,14 @@ function MainBar() {
 
   return (
     <div className="flex-1 min-w-0 pb-24 lg:pb-12 relative">
-      {/* Tab bar — glass pill on desktop, frosted bottom bar on mobile */}
+
+      {/* ── Tab bar ── */}
       <nav
         className="fixed bottom-0 inset-x-0 z-50 px-3 pb-3 pt-2 lg:static lg:px-0 lg:pb-0 lg:pt-0 lg:mb-8 lg:flex lg:justify-center"
         role="tablist"
         aria-label="Sections"
       >
-        {/* Mobile frosted bar background */}
+        {/* Mobile frosted backdrop */}
         <div className="absolute inset-0 lg:hidden"
           style={{
             background: 'rgba(255,255,255,0.75)',
@@ -69,14 +70,16 @@ function MainBar() {
             borderTop: '1px solid rgba(255,255,255,0.5)',
           }} />
 
-        <div className="relative flex items-center justify-between lg:justify-center gap-0.5 max-w-full overflow-x-auto rounded-2xl p-1"
+        <div
+          className="relative flex items-center justify-between lg:justify-center gap-0.5 max-w-full overflow-x-auto rounded-2xl p-1"
           style={{
             background: 'rgba(255,255,255,0.88)',
             backdropFilter: 'blur(24px) saturate(180%)',
             WebkitBackdropFilter: 'blur(24px) saturate(180%)',
             border: '1px solid rgba(255,255,255,0.7)',
             boxShadow: '0 8px 32px rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.9) inset',
-          }}>
+          }}
+        >
           {tabs.map((tab, index) => (
             <motion.button
               key={tab.id}
@@ -111,22 +114,22 @@ function MainBar() {
         </div>
       </nav>
 
-      <div className="w-full relative z-0">
+      {/* ── Tab content — Genie Effect from tab bar (top on desktop) ── */}
+      <div className="w-full relative z-0" style={{ overflow: 'clip' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={activeId}
-            style={{ transformOrigin: 'bottom center', willChange: 'transform, opacity' }}
-            initial={{ opacity: 0, scaleY: 0.12, scaleX: 0.72, y: 70 }}
-            animate={{ opacity: 1, scaleY: 1,    scaleX: 1,    y: 0  }}
-            exit={{    opacity: 0, scaleY: 0.12, scaleX: 0.72, y: 70 }}
-            transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformOrigin: 'top center', willChange: 'transform, opacity' }}
+            initial={{ opacity: 0, scaleY: 0.08, scaleX: 0.78, y: -16 }}
+            animate={{ opacity: 1, scaleY: 1,    scaleX: 1,    y: 0   }}
+            exit={{    opacity: 0, scaleY: 0.08, scaleX: 0.78, y: -16 }}
+            transition={{ duration: 0.24, ease: [0.25, 1, 0.35, 1] }}
           >
             <TabErrorBoundary tabId={activeId}>
               <Suspense fallback={
                 <div className="rounded-3xl min-h-[32rem] animate-pulse"
                   style={{
                     background: 'rgba(255,255,255,0.4)',
-                    backdropFilter: 'blur(24px)',
                     border: '1px solid rgba(255,255,255,0.5)',
                   }} />
               }>
