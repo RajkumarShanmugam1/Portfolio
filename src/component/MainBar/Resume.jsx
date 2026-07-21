@@ -76,7 +76,7 @@ const Resume = () => (
 
     <div className="flex flex-col md:flex-row gap-x-16 gap-y-12 pt-2 items-start">
 
-      {/* ── Left column: Education + Certificates ── */}
+      {/* ── Left column: Education + Hobbies ── */}
       <div className="flex-1 min-w-0 space-y-12">
 
         <section>
@@ -110,23 +110,16 @@ const Resume = () => (
         </section>
 
         <section>
-          <SectionHeader accent={sectionAccents.education} label="Certificates" />
+          <SectionHeader accent={sectionAccents.hobbies} label="Hobbies" />
           <div className="relative border-l-2 border-black/[0.06] pl-8 space-y-10">
-            {resumeData.certificates.map((item, i) => (
-              <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group">
-                <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-white z-10`} />
+            {resumeData.hobbies.map((item, i) => (
+              <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
+                <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.hobbies.dot} border-2 border-white z-10`} />
                 <div className="flex items-center gap-3">
-                  <span className={`${sectionAccents.education.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon] || <FaAward />}</span>
-                  {item.href && item.href !== '#' ? (
-                    <a href={item.href} target="_blank" rel="noreferrer"
-                      className="text-base font-medium text-text-primary uppercase tracking-tight hover:text-accent-blue transition-colors">
-                      {item.title}
-                    </a>
-                  ) : (
-                    <h4 className="text-base font-medium text-text-primary uppercase tracking-tight">{item.title}</h4>
-                  )}
+                  <span className={`${sectionAccents.hobbies.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon]}</span>
+                  <h4 className="text-base font-medium text-text-primary uppercase tracking-tight transition-all">{item.title}</h4>
                 </div>
-                <p className="text-text-secondary font-medium mt-1 text-sm">{item.issuer}</p>
+                <p className="text-text-secondary font-medium mt-1 text-sm">{item.sub}</p>
               </motion.div>
             ))}
           </div>
@@ -134,7 +127,7 @@ const Resume = () => (
 
       </div>
 
-      {/* ── Right column: Experience + Hobbies ── */}
+      {/* ── Right column: Experience + Certificates ── */}
       <div className="flex-1 min-w-0 space-y-12">
 
         <section>
@@ -171,16 +164,23 @@ const Resume = () => (
         </section>
 
         <section>
-          <SectionHeader accent={sectionAccents.hobbies} label="Hobbies" />
+          <SectionHeader accent={sectionAccents.education} label="Certificates" />
           <div className="relative border-l-2 border-black/[0.06] pl-8 space-y-10">
-            {resumeData.hobbies.map((item, i) => (
-              <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
-                <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.hobbies.dot} border-2 border-white z-10`} />
+            {resumeData.certificates.map((item, i) => (
+              <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group">
+                <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-white z-10`} />
                 <div className="flex items-center gap-3">
-                  <span className={`${sectionAccents.hobbies.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon]}</span>
-                  <h4 className="text-base font-medium text-text-primary uppercase tracking-tight transition-all">{item.title}</h4>
+                  <span className={`${sectionAccents.education.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon] || <FaAward />}</span>
+                  {item.href && item.href !== '#' ? (
+                    <a href={item.href} target="_blank" rel="noreferrer"
+                      className="text-base font-medium text-text-primary uppercase tracking-tight hover:text-accent-blue transition-colors">
+                      {item.title}
+                    </a>
+                  ) : (
+                    <h4 className="text-base font-medium text-text-primary uppercase tracking-tight">{item.title}</h4>
+                  )}
                 </div>
-                <p className="text-text-secondary font-medium mt-1 text-sm">{item.sub}</p>
+                <p className="text-text-secondary font-medium mt-1 text-sm">{item.issuer}</p>
               </motion.div>
             ))}
           </div>
