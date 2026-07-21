@@ -74,7 +74,7 @@ const Resume = () => (
       </a>
     </header>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 pt-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 pt-2 items-start">
 
       <section>
         <SectionHeader accent={sectionAccents.education} label="Education" />
