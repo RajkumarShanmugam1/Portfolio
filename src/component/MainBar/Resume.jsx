@@ -74,112 +74,120 @@ const Resume = () => (
       </a>
     </header>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 pt-2 items-start">
+    <div className="flex flex-col md:flex-row gap-x-16 gap-y-12 pt-2 items-start">
 
-      <section>
-        <SectionHeader accent={sectionAccents.education} label="Education" />
-        <div className="relative pl-8 space-y-10">
-          {/* Animated line — scaleY from top, avoids % height issue on mobile */}
-          <motion.div
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute left-0 top-2 bottom-0 w-[2px] bg-black/[0.12]"
-            style={{ transformOrigin: 'top' }}
-          />
-          {resumeData.education.map((item, i) => (
-            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="relative group cursor-default">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 + 0.3, type: "spring", stiffness: 200 }}
-                className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-white z-10`}
-              />
-              <h4 className={`text-base font-medium text-text-primary ${sectionAccents.education.hoverClass} transition-colors`}>
-                {item.href ? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a> : item.title}
-              </h4>
-              <p className={`${sectionAccents.education.text} font-medium text-xs uppercase tracking-wider mt-1 opacity-80`}>{item.span}</p>
-              <p className="text-text-secondary font-medium mt-1 text-sm">{item.sub}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      {/* ── Left column: Education + Certificates ── */}
+      <div className="flex-1 min-w-0 space-y-12">
 
-      <section>
-        <SectionHeader accent={sectionAccents.experience} label="Experience" />
-        <div className="relative pl-8 space-y-10">
-          <motion.div
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute left-0 top-2 bottom-0 w-[2px] bg-black/[0.12]"
-            style={{ transformOrigin: 'top' }}
-          />
-          {resumeData.experience.map((item, i) => (
-            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="relative group cursor-default">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 + 0.3, type: "spring", stiffness: 200 }}
-                className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.experience.dot} border-2 border-white z-10`}
-              />
-              <h4 className={`text-base font-medium text-text-primary ${sectionAccents.experience.hoverClass} transition-colors`}>
-                {item.href ? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a> : item.title}
-              </h4>
-              <p className={`${sectionAccents.experience.text} font-medium text-xs uppercase tracking-wider mt-1 opacity-80`}>{item.span}</p>
-              <div className="text-text-secondary font-medium mt-1">
-                <p className="text-sm">{item.sub}</p>
-                <p className="text-xs text-text-muted mt-1">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+        <section>
+          <SectionHeader accent={sectionAccents.education} label="Education" />
+          <div className="relative pl-8 space-y-10">
+            <motion.div
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute left-0 top-2 bottom-0 w-[2px] bg-black/[0.12]"
+              style={{ transformOrigin: 'top' }}
+            />
+            {resumeData.education.map((item, i) => (
+              <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="relative group cursor-default">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 + 0.3, type: "spring", stiffness: 200 }}
+                  className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-white z-10`}
+                />
+                <h4 className={`text-base font-medium text-text-primary ${sectionAccents.education.hoverClass} transition-colors`}>
+                  {item.href ? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a> : item.title}
+                </h4>
+                <p className={`${sectionAccents.education.text} font-medium text-xs uppercase tracking-wider mt-1 opacity-80`}>{item.span}</p>
+                <p className="text-text-secondary font-medium mt-1 text-sm">{item.sub}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
 
-      {/* Certificates */}
-      <section>
-        <SectionHeader accent={sectionAccents.education} label="Certificates" />
-        <div className="relative border-l-2 border-black/[0.06] pl-8 space-y-10">
-          {resumeData.certificates.map((item, i) => (
-            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group">
-              <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-white z-10`} />
-              <div className="flex items-center gap-3">
-                <span className={`${sectionAccents.education.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon] || <FaAward />}</span>
-                {item.href && item.href !== '#' ? (
-                  <a href={item.href} target="_blank" rel="noreferrer"
-                    className="text-base font-medium text-text-primary uppercase tracking-tight hover:text-accent-blue transition-colors">
-                    {item.title}
-                  </a>
-                ) : (
-                  <h4 className="text-base font-medium text-text-primary uppercase tracking-tight">{item.title}</h4>
-                )}
-              </div>
-              <p className="text-text-secondary font-medium mt-1 text-sm">{item.issuer}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+        <section>
+          <SectionHeader accent={sectionAccents.education} label="Certificates" />
+          <div className="relative border-l-2 border-black/[0.06] pl-8 space-y-10">
+            {resumeData.certificates.map((item, i) => (
+              <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group">
+                <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.education.dot} border-2 border-white z-10`} />
+                <div className="flex items-center gap-3">
+                  <span className={`${sectionAccents.education.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon] || <FaAward />}</span>
+                  {item.href && item.href !== '#' ? (
+                    <a href={item.href} target="_blank" rel="noreferrer"
+                      className="text-base font-medium text-text-primary uppercase tracking-tight hover:text-accent-blue transition-colors">
+                      {item.title}
+                    </a>
+                  ) : (
+                    <h4 className="text-base font-medium text-text-primary uppercase tracking-tight">{item.title}</h4>
+                  )}
+                </div>
+                <p className="text-text-secondary font-medium mt-1 text-sm">{item.issuer}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
 
-      {/* Hobbies */}
-      <section>
-        <SectionHeader accent={sectionAccents.hobbies} label="Hobbies" />
-        <div className="relative border-l-2 border-black/[0.06] pl-8 space-y-10">
-          {resumeData.hobbies.map((item, i) => (
-            <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
-              <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.hobbies.dot} border-2 border-white z-10`} />
-              <div className="flex items-center gap-3">
-                <span className={`${sectionAccents.hobbies.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon]}</span>
-                <h4 className="text-base font-medium text-text-primary uppercase tracking-tight transition-all">{item.title}</h4>
-              </div>
-              <p className="text-text-secondary font-medium mt-1 text-sm">{item.sub}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      </div>
+
+      {/* ── Right column: Experience + Hobbies ── */}
+      <div className="flex-1 min-w-0 space-y-12">
+
+        <section>
+          <SectionHeader accent={sectionAccents.experience} label="Experience" />
+          <div className="relative pl-8 space-y-10">
+            <motion.div
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute left-0 top-2 bottom-0 w-[2px] bg-black/[0.12]"
+              style={{ transformOrigin: 'top' }}
+            />
+            {resumeData.experience.map((item, i) => (
+              <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="relative group cursor-default">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 + 0.3, type: "spring", stiffness: 200 }}
+                  className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.experience.dot} border-2 border-white z-10`}
+                />
+                <h4 className={`text-base font-medium text-text-primary ${sectionAccents.experience.hoverClass} transition-colors`}>
+                  {item.href ? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a> : item.title}
+                </h4>
+                <p className={`${sectionAccents.experience.text} font-medium text-xs uppercase tracking-wider mt-1 opacity-80`}>{item.span}</p>
+                <div className="text-text-secondary font-medium mt-1">
+                  <p className="text-sm">{item.sub}</p>
+                  <p className="text-xs text-text-muted mt-1">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <SectionHeader accent={sectionAccents.hobbies} label="Hobbies" />
+          <div className="relative border-l-2 border-black/[0.06] pl-8 space-y-10">
+            {resumeData.hobbies.map((item, i) => (
+              <motion.div key={i} variants={fadeInUp(i)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group cursor-default">
+                <div className={`absolute -left-[37px] top-1.5 w-3 h-3 rounded-full ${sectionAccents.hobbies.dot} border-2 border-white z-10`} />
+                <div className="flex items-center gap-3">
+                  <span className={`${sectionAccents.hobbies.text} text-xl group-hover:scale-110 transition-transform`}>{hobbyIcons[item.icon]}</span>
+                  <h4 className="text-base font-medium text-text-primary uppercase tracking-tight transition-all">{item.title}</h4>
+                </div>
+                <p className="text-text-secondary font-medium mt-1 text-sm">{item.sub}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
 
       {/* Skills — full width so it doesn't sit alone beside an empty column */}
       <section className="md:col-span-2">
