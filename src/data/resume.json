@@ -2,7 +2,7 @@
     "education": [
         {
             "title": "Mepco Schlenk Engineering College, Sivakasi, Tamilnadu",
-            "sub": "B.E. Computer Science — CGPA: 7.6 / 10",
+            "sub": "B.E. in Computer Science — CGPA: 7.6 / 10",
             "span": "Sept 2019 — May 2023",
             "href": "https://www.mepcoeng.ac.in/"
         },
@@ -21,49 +21,49 @@
     ],
     "experience": [
         {
-            "title": "Software Engineer (Security Focus)",
+            "title": "Software Engineer",
             "sub": "PalC Networks Pvt. Ltd",
             "span": "Aug 2025 — Present",
-            "desc": "Engineered real-time network security monitoring solution (Java/Spring Boot + React) for continuous device health logging, anomaly detection, and threat visualization. Enhanced SONiC BGP CLI; conducted vulnerability assessments as part of infrastructure hardening.",
+            "desc": "Built and maintained a multi-vendor NMS (Java/Spring Boot + React) supporting CLI and SNMP protocols. Integrated SONiC NOS CLI and improved BGP CLI using IS-CLI framework. Engineered real-time device health logging, anomaly detection, and threat visualization dashboards. Conducted vulnerability assessments as part of infrastructure hardening.",
             "href": "https://palcnetworks.com/"
         },
         {
-            "title": "Project Engineer — Security",
+            "title": "Project Engineer",
             "sub": "PalC Networks Pvt. Ltd",
-            "span": "June 2023 — July 2025",
-            "desc": "Conducted VA on WordPress environments using Burp Suite and manual testing (OWASP Top 10). Hardened email security via SPF, DKIM, DMARC — reducing phishing risk by 60%. Customized Wazuh SIEM with tailored decoders and detection rules for real-time BGP and configuration alerting.",
+            "span": "Jun 2023 — Jul 2025",
+            "desc": "Developed a CLI-only NMS module for devices lacking SNMP support. Hardened email security via SPF, DKIM, DMARC — reducing phishing risk by 60% and spoofing by 80%. Customized Wazuh SIEM with tailored decoders and detection rules for SONiC NOS environments. Identified and remediated security misconfigurations in WordPress environments using Burp Suite (OWASP Top 10).",
             "href": "https://palcnetworks.com/"
         },
         {
-            "title": "Security Intern",
+            "title": "Software Intern (Security)",
             "sub": "PalC Networks Pvt. Ltd",
-            "span": "Feb 2023 — June 2023",
-            "desc": "Implemented IAM solutions using OKTA, Auth0, and OAuth 2.0 enforcing zero-trust access controls. Deployed MFA, SSO, Federation, and PAM to strengthen authentication and identity governance.",
+            "span": "Feb 2023 — Jun 2023",
+            "desc": "Implemented IAM solutions using OKTA, Auth0, and OAuth 2.0 enforcing zero-trust access controls. Deployed MFA, SSO, Federation, and PAM to strengthen authentication and identity governance. Supported credential lifecycle management and identity governance policy enforcement.",
             "href": "https://palcnetworks.com/"
         }
     ],
     "certificates": [
         {
-            "title": "Certified WiFi Pentesting 101",
-            "issuer": "Capprico Security University",
-            "href": "https://university.cappriciosec.com/certificates/?cred_id=11dda2bb4d7e48f84c33",
-            "icon": "shield"
-        },
-        {
             "title": "Certified API Pentesting & Bug Bounty 101",
-            "issuer": "Capprico Security University",
+            "issuer": "Capprico Security University — May 2026",
             "href": "https://university.cappriciosec.com/certificates/?cred_id=62ce9de71955653be19d",
             "icon": "shield"
         },
         {
+            "title": "Certified WiFi Pentesting 101",
+            "issuer": "Capprico Security University — May 2026",
+            "href": "https://university.cappriciosec.com/certificates/?cred_id=11dda2bb4d7e48f84c33",
+            "icon": "shield"
+        },
+        {
             "title": "Network Analysis",
-            "issuer": "Google / Drive Certification",
+            "issuer": "Security Blue Team — May 2023",
             "href": "#",
             "icon": "book"
         },
         {
-            "title": "Mastercard Cybersecurity Job Simulation",
-            "issuer": "Forage",
+            "title": "Cybersecurity Virtual Experience Program",
+            "issuer": "Mastercard (Forage) — Feb 2023",
             "href": "#",
             "icon": "briefcase"
         }
@@ -107,14 +107,24 @@
             "color": "from-accent-blue to-accent-cyan"
         },
         {
+            "label": "AI & LLM Security (OWASP LLM Top 10)",
+            "value": 75,
+            "color": "from-accent-cyan to-accent-purple"
+        },
+        {
+            "label": "Java / Spring Boot / React",
+            "value": 80,
+            "color": "from-accent-purple to-accent-blue"
+        },
+        {
             "label": "Email Security (SPF / DKIM / DMARC)",
             "value": 82,
-            "color": "from-accent-cyan to-accent-purple"
+            "color": "from-accent-blue to-accent-cyan"
         },
         {
             "label": "Linux & Scripting (Bash / Python)",
             "value": 80,
-            "color": "from-accent-purple to-accent-blue"
+            "color": "from-accent-cyan to-accent-purple"
         }
     ]
 }
