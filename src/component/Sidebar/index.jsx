@@ -100,10 +100,10 @@ const Sidebar = () => {
             })}
           </div>
 
-          <a href={resumePdf} download="Rajkumar_Resume.pdf"
+          <a href={resumePdf} target="_blank" rel="noreferrer"
             className="btn-primary w-full flex items-center justify-center gap-2.5 py-2.5 text-xs">
             <FaFilePdf size={14} />
-            <span>Download Resume / CV</span>
+            <span>View Resume / CV</span>
           </a>
         </div>
       </div>

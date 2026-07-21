@@ -65,11 +65,12 @@ const Resume = () => (
       </div>
       <a
         href={resumePdf}
-        download="Rajkumar_Resume.pdf"
+        target="_blank"
+        rel="noreferrer"
         className="btn-primary flex items-center gap-2.5 text-sm"
       >
         <FaFilePdf size={14} />
-        <span className="hidden sm:inline">Download CV</span>
+        <span className="hidden sm:inline">View CV</span>
       </a>
     </header>
 
