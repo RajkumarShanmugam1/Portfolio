@@ -6,7 +6,7 @@ import {
 } from 'react-icons/fa6';
 import { FaFilePdf } from 'react-icons/fa';
 import resumeData from '../../data/resume.json';
-import resumePdf from '../../assets/Resume_Security_engineer.pdf';
+import resumePdf from '../../assets/Rajkumar_Shanmugam.pdf';
 
 const fadeInUp = (i) => ({
   hidden: { opacity: 0, x: -25, scale: 0.95 },

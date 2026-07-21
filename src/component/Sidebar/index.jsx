@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiCredly } from 'react-icons/si';
 import { FaMedium } from 'react-icons/fa6';
 import profileData from '../../data/profile.json';
-import resumePdf from '../../assets/Resume_Security_engineer.pdf';
+import resumePdf from '../../assets/Rajkumar_Shanmugam.pdf';
 
 const socialIcons = {
   GitHub:   { icon: <FaGithub />,   bg: 'linear-gradient(145deg,#333,#111)',     shadow: 'rgba(0,0,0,0.35)' },
