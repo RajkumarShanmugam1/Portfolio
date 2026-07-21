@@ -24,21 +24,21 @@
             "title": "Software Engineer",
             "sub": "PalC Networks Pvt. Ltd",
             "span": "Aug 2025 — Present",
-            "desc": "Built and maintained a multi-vendor NMS (Java/Spring Boot + React) supporting CLI and SNMP protocols. Integrated SONiC NOS CLI and improved BGP CLI using IS-CLI framework. Engineered real-time device health logging, anomaly detection, and threat visualization dashboards. Conducted vulnerability assessments as part of infrastructure hardening.",
+            "desc": "Built and maintained a multi-vendor Network Management System (NMS) supporting CLI and SNMP protocols using Java (Spring Boot) and React, enabling centralized monitoring and management across diverse network infrastructure. Integrated SONiC NOS CLI support and improved BGP CLI using the IS-CLI framework, streamlining BGP session management and fault detection on open networking platforms. Engineered real-time device health logging, anomaly detection, and threat visualization dashboards, layering security monitoring capabilities directly into the NMS platform. Conducted vulnerability assessments and security reviews alongside core development work as part of ongoing infrastructure hardening initiatives.",
             "href": "https://palcnetworks.com/"
         },
         {
             "title": "Project Engineer",
             "sub": "PalC Networks Pvt. Ltd",
             "span": "Jun 2023 — Jul 2025",
-            "desc": "Developed a CLI-only NMS module for devices lacking SNMP support. Hardened email security via SPF, DKIM, DMARC — reducing phishing risk by 60% and spoofing by 80%. Customized Wazuh SIEM with tailored decoders and detection rules for SONiC NOS environments. Identified and remediated security misconfigurations in WordPress environments using Burp Suite (OWASP Top 10).",
+            "desc": "Developed a CLI-only NMS module for devices lacking SNMP support, enabling structured, secure interaction with a wider range of network hardware. Simulated and troubleshot routing, VLANs, and network protocols (ICMP, ARP, DNS) using Cisco Packet Tracer to validate network topologies before deployment. Hardened email security posture by configuring SPF, DKIM, and DMARC records, reducing phishing risk by 60% and mitigating spoofing attacks by 80% across client domains. Customized Wazuh SIEM with tailored decoders and detection rules for SONiC NOS environments, enabling real-time alerting on BGP route changes and unauthorized configuration modifications. Identified and remediated information leakage and security misconfigurations in WordPress environments using Burp Suite and manual testing, aligned to OWASP Top 10.",
             "href": "https://palcnetworks.com/"
         },
         {
             "title": "Software Intern (Security)",
             "sub": "PalC Networks Pvt. Ltd",
             "span": "Feb 2023 — Jun 2023",
-            "desc": "Implemented IAM solutions using OKTA, Auth0, and OAuth 2.0 enforcing zero-trust access controls. Deployed MFA, SSO, Federation, and PAM to strengthen authentication and identity governance. Supported credential lifecycle management and identity governance policy enforcement.",
+            "desc": "Implemented IAM solutions using OKTA, Auth0, and OAuth 2.0, enforcing zero-trust access controls across enterprise systems. Deployed MFA, SSO, Federation, and Privileged Access Management (PAM) to strengthen authentication and access-control policies. Supported credential lifecycle management and identity governance policy enforcement.",
             "href": "https://palcnetworks.com/"
         }
     ],
